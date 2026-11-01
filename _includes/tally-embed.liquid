@@ -1,0 +1,29 @@
+{% comment %}
+  Click-to-load Tally form: nothing is requested from Tally (or its subprocessors) until the visitor clicks.
+  The iframe is created by the small script below; without JavaScript, the page's "open in a new tab" link
+  still works. Usage: {% include tally-embed.liquid id=tally_form_id %}
+{% endcomment %}
+{% assign ui = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+<div
+  class="mx-form-frame mx-form-placeholder"
+  data-tally-src="https://tally.so/embed/{{ include.id }}?alignLeft=1&hideTitle=1"
+  data-tally-title="{{ ui.tally_iframe_title }}"
+>
+  <button type="button" class="mx-btn mx-btn-primary mx-form-load">
+    <i class="fa-solid fa-file-pen" aria-hidden="true"></i> {{ ui.tally_show_form }}
+  </button>
+  <p class="mx-form-notice">{{ ui.tally_notice }}</p>
+</div>
+<script>
+  document.querySelectorAll('.mx-form-load').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var holder = button.closest('[data-tally-src]');
+      var frame = document.createElement('iframe');
+      frame.className = 'mx-form-frame';
+      frame.src = holder.getAttribute('data-tally-src');
+      frame.title = holder.getAttribute('data-tally-title');
+      holder.replaceWith(frame);
+      frame.focus();
+    });
+  });
+</script>

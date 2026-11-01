@@ -1,0 +1,80 @@
+# People shown on the People page. Edit freely; no HTML needed.
+# initials: shown in the coloured circle when there is no photo
+# title: job title, shown under the role (optional)
+# *_fr fields: French text for the French page (via _includes/tr.liquid); English is used when missing.
+
+coordinators:
+  - name: Michael Sebbagh
+    initials: MS
+    role: Coordinator, Marseille hub
+    role_fr: "Coordinateur, site de Marseille"
+    title: Inserm Research Scientist
+    title_fr: "Chargé de recherche Inserm"
+    affiliation: DyNaMo, Inserm UMR 1325, Aix-Marseille University
+    affiliation_fr: "DyNaMo, Inserm UMR 1325, Aix-Marseille Université"
+  - name: Etienne Boulter
+    initials: EB
+    role: Coordinator, Nice hub
+    role_fr: "Coordinateur, site de Nice"
+    title: Inserm Research Scientist
+    title_fr: "Chargé de recherche Inserm"
+    affiliation: IRCAN, Inserm U1081 / CNRS UMR 7284, Université Côte d'Azur
+
+engineer:
+  name: Leda Lacaria
+  initials: LL
+  role: Project engineer
+  role_fr: "Ingénieure de projet"
+  title: Inserm Research Engineer
+  title_fr: "Ingénieure de recherche Inserm"
+  affiliation: Single entry point for requests, coordination and training. Based at DyNaMo, Marseille.
+  affiliation_fr: "Point d'entrée unique pour les demandes, coordination et formation. Basée à DyNaMo, Marseille."
+
+# Steering committee: add members here ("First Last") only once each person has agreed to be listed.
+# The repository history becomes public with the site, so do not commit unvalidated names, even temporarily.
+steering_committee: []
+
+institutes:
+  - name: DyNaMo
+    city: Marseille
+    full: Dynamics and nanoenvironment of biological membranes
+  - name: IRCAN
+    city: Nice
+    full: Institute for Research on Cancer and Aging
+    full_fr: "Institut de Recherche sur le Cancer et le Vieillissement"
+  - name: CRCM
+    city: Marseille
+    full: Cancer Research Center of Marseille
+    full_fr: "Centre de Recherche en Cancérologie de Marseille"
+  - name: IBDM
+    city: Marseille
+    full: Institut de Biologie du Développement de Marseille
+  - name: CIML
+    city: Marseille
+    full: Centre d'Immunologie de Marseille-Luminy
+  - name: MMG
+    city: Marseille
+    full: Marseille Medical Genetics
+  - name: LP2M
+    city: Nice
+    full: Laboratoire de Physiomédecine Moléculaire
+  - name: IPMC
+    city: Sophia Antipolis
+    full: Institut de Pharmacologie Moléculaire et Cellulaire
+  - name: INPHYNI
+    city: Nice
+    full: Institut de Physique de Nice
+  - name: Mecabionic
+    city: Nice
+    full: Federative institute for mechanobiology, Université Côte d'Azur
+    full_fr: "Structure fédérative de mécanobiologie, Université Côte d'Azur"
+
+references:
+  - text: "Lopez-Alonso J. et al. PyFMLab: open-source software for atomic force microscopy microrheology data analysis. Open Res Eur 3, 187 (2023)."
+    doi: 10.12688/openreseurope.16550.2
+  - text: "Boulter E. et al. Cyclic uniaxial mechanical stretching of cells using a LEGO® parts-based mechanical stretcher system. J Cell Sci 133 (2020)."
+    doi: 10.1242/jcs.234666
+  - text: "Saha P. et al. Modulation of SARS-CoV-2 spike binding to ACE2 through conformational selection. Nat Nanotechnol 20, 926–934 (2025)."
+    doi: 10.1038/s41565-025-01908-1
+  - text: "Eroles M. & Rico F. Advances in mechanical biomarkers. J Mol Recognit 36, e3022 (2023)."
+    doi: 10.1002/jmr.3022

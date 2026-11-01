@@ -1,0 +1,799 @@
+/*******************************************************************************
+ * MECDITRINA identity layer
+ *
+ * Colours and type taken from the MECDITRINA presentation (13 Oct 2026):
+ *   - "MEC" deep teal + "DITRINA" mauve → pink → peach gradient (slide 3 wordmark)
+ *   - aqua → lavender → pink → peach header band (slide headers)
+ *   - navy text, teal accents and pastel icon tints (slide 2)
+ * Fonts: Montserrat (wordmark, headings) + Inter (body), self-hosted in
+ * assets/fonts/ (Fontsource 5.3.0 woff2, SIL OFL 1.1) so pages make no requests
+ * to Google Fonts.
+ *
+ * This file only adds to the al-folio theme: it is loaded last from
+ * assets/css/main.scss and overrides the theme's CSS custom properties.
+ ******************************************************************************/
+
+// ---- Brand palette ----------------------------------------------------------
+$mx-mec: #015977; // "MEC" in the wordmark, primary brand colour
+$mx-teal: #119ba5; // accent numbers / icons (slide 2)
+$mx-navy: #183a4a; // dark headings (slide 2)
+$mx-ink: #23394b; // body text
+$mx-slate: #4f616f; // secondary text
+$mx-mauve: #9f639b;
+$mx-pink: #d1638b;
+$mx-coral: #e18b6a;
+$mx-peach: #f99e72;
+$mx-aqua: #6fc8d2;
+
+// Pastel tints used behind icons (slide 2)
+$mx-tint-aqua: #e4f4f5;
+$mx-tint-peach: #fdf3ec;
+$mx-tint-lavender: #f2eff6;
+$mx-tint-mint: #e9f5f2;
+$mx-tint-blue: #ebf0f5;
+
+$mx-ditrina-gradient: linear-gradient(90deg, $mx-mauve 0%, $mx-pink 30%, $mx-coral 65%, $mx-peach 100%);
+$mx-band-gradient: linear-gradient(90deg, #6fc8d2 0%, #a1b8da 28%, #c9aed5 50%, #e8b7c3 72%, #fcb88f 100%);
+
+// ---- Self-hosted fonts --------------------------------------------------------------
+// latin + latin-ext subsets; the browser downloads latin-ext only if a page uses those characters.
+// URLs are relative to the compiled CSS (assets/css/main.css), so they work with any baseurl.
+$mx-unicode-latin:
+  U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+  U+2215, U+FEFF, U+FFFD;
+$mx-unicode-latin-ext:
+  U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+  U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+
+@each $family, $file, $weights in ("Inter", "inter", (400, 500, 600)), ("Montserrat", "montserrat", (500, 600, 700)) {
+  @each $weight in $weights {
+    @each $subset, $range in ("latin-ext": $mx-unicode-latin-ext, "latin": $mx-unicode-latin) {
+      @font-face {
+        font-family: $family;
+        font-style: normal;
+        font-weight: $weight;
+        font-display: swap;
+        src: url("../fonts/#{$file}-#{$subset}-#{$weight}-normal.woff2") format("woff2");
+        unicode-range: $range;
+      }
+    }
+  }
+}
+
+$mx-font-display: "Montserrat", "Segoe UI", system-ui, sans-serif;
+$mx-font-body:
+  "Inter",
+  "Segoe UI",
+  system-ui,
+  -apple-system,
+  sans-serif;
+
+// ---- Theme tokens (override al-folio defaults) -------------------------------
+:root {
+  --global-bg-color: #ffffff;
+  --global-code-bg-color: #{$mx-tint-lavender};
+  --global-text-color: #{$mx-ink};
+  --global-text-color-light: #{$mx-slate};
+  --global-theme-color: #{$mx-mec};
+  --global-hover-color: #a8476f;
+  --global-hover-text-color: #ffffff;
+  --global-footer-bg-color: #{$mx-navy};
+  --global-footer-text-color: #c5d3db;
+  --global-footer-link-color: #ffffff;
+  --global-divider-color: rgba(35, 57, 75, 0.12);
+  --global-card-bg-color: #ffffff;
+  --global-highlight-color: #a8476f;
+
+  --mx-mec: #{$mx-mec};
+  --mx-accent: #{$mx-teal};
+  --mx-heading: #{$mx-navy};
+  --mx-surface: #f7f9fb;
+  --mx-hero-bg:
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, #ffffff 100%),
+    linear-gradient(90deg, rgba(111, 200, 210, 0.22), rgba(201, 174, 213, 0.22) 50%, rgba(252, 184, 143, 0.24));
+  --mx-tint-aqua: #{$mx-tint-aqua};
+  --mx-tint-peach: #{$mx-tint-peach};
+  --mx-tint-lavender: #{$mx-tint-lavender};
+  --mx-tint-mint: #{$mx-tint-mint};
+  --mx-tint-blue: #{$mx-tint-blue};
+  --mx-marseille-text: #6e3f73;
+  --mx-nice-text: #015977;
+  --mx-soon-text: #8a4a24;
+  --mx-planned-text: #2f557a;
+}
+
+html[data-theme="dark"] {
+  --global-bg-color: #0e1f2b;
+  --global-code-bg-color: #1a3242;
+  --global-text-color: #e2ebf0;
+  --global-text-color-light: #9db2bf;
+  --global-theme-color: #{$mx-aqua};
+  --global-hover-color: #f2a27d;
+  --global-hover-text-color: #0e1f2b;
+  --global-footer-bg-color: #0a1720;
+  --global-footer-text-color: #9db2bf;
+  --global-footer-link-color: #e2ebf0;
+  --global-divider-color: #24404f;
+  --global-card-bg-color: #142a38;
+  --global-highlight-color: #f08fa8;
+
+  --mx-mec: #{$mx-aqua};
+  --mx-accent: #{$mx-aqua};
+  --mx-heading: #f2f6f8;
+  --mx-surface: #142a38;
+  --mx-hero-bg:
+    linear-gradient(180deg, rgba(14, 31, 43, 0) 55%, #0e1f2b 100%),
+    linear-gradient(90deg, rgba(111, 200, 210, 0.16), rgba(201, 174, 213, 0.14) 50%, rgba(252, 184, 143, 0.14));
+  --mx-tint-aqua: rgba(111, 200, 210, 0.16);
+  --mx-tint-peach: rgba(249, 158, 114, 0.16);
+  --mx-tint-lavender: rgba(201, 174, 213, 0.16);
+  --mx-tint-mint: rgba(120, 200, 170, 0.16);
+  --mx-tint-blue: rgba(150, 180, 220, 0.16);
+  --mx-marseille-text: #e2c3e6;
+  --mx-nice-text: #9fe0e7;
+  --mx-soon-text: #fbc9a9;
+  --mx-planned-text: #bcd0ec;
+}
+
+// ---- Typography --------------------------------------------------------------
+body {
+  font-family: $mx-font-body;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post-title {
+  font-family: $mx-font-display;
+  color: var(--mx-heading);
+  letter-spacing: -0.005em;
+}
+
+.post-title {
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+h3,
+h4 {
+  font-weight: 600;
+}
+
+// ---- Links in running text ---------------------------------------------------------
+// Underlined so they are not distinguished by colour alone (WCAG 1.4.1). Buttons, nav and cards are not affected.
+article p a,
+article li a,
+.news td a,
+.mx-note a,
+footer a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+// ---- Wordmark ----------------------------------------------------------------
+.mx-wordmark {
+  font-family: $mx-font-display;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.mx-mec {
+  color: var(--mx-mec);
+}
+
+.mx-ditrina {
+  background: $mx-ditrina-gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+// ---- Navbar: gradient band on top, wordmark as brand ----------------------
+#navbar {
+  border-top: 4px solid transparent;
+  border-image: $mx-band-gradient 1;
+}
+
+#navbar .navbar-brand.title {
+  font-weight: 700 !important;
+}
+
+#navbar .navbar-brand .mx-wordmark {
+  font-size: 1.35rem;
+}
+
+#navbar .nav-link {
+  font-family: $mx-font-display;
+  font-weight: 500;
+}
+
+// Skip link (header.liquid): off-screen until focused, then shown above the fixed navbar
+.mx-skip-link {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--global-theme-color);
+  border-radius: 8px;
+  background: var(--global-bg-color);
+  color: var(--global-theme-color);
+  font-weight: 600;
+}
+
+.mx-skip-link:focus {
+  top: 0.75rem;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+// EN/FR switch (header.liquid): a small outlined pill, set apart from the page links
+#navbar .mx-lang-switch .nav-link {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  margin: 0.4rem 0.25rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+#navbar .mx-lang-switch .nav-link:hover {
+  border-color: var(--global-theme-color);
+}
+
+// ---- Bilingual text in a single string (footer_text) ------------------------------
+// Both languages are in the HTML; show the one matching <html lang> (set from page.lang by al_rtl).
+html:not([lang="fr"]) .mx-lang-fr,
+html[lang="fr"] .mx-lang-en {
+  display: none;
+}
+
+// ---- Layout helpers ----------------------------------------------------------
+.mx-section {
+  margin: 3.25rem 0;
+}
+
+.mx-section > h2 {
+  font-size: 1.55rem;
+  margin-bottom: 0.4rem;
+}
+
+.mx-section > h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 4px;
+  margin-top: 0.55rem;
+  border-radius: 2px;
+  background: $mx-ditrina-gradient;
+}
+
+.mx-section-intro {
+  color: var(--global-text-color-light);
+  max-width: 44rem;
+  margin-bottom: 1.5rem;
+}
+
+.mx-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.1rem;
+}
+
+.mx-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 1.1rem;
+}
+
+// ---- Hero ----------------------------------------------------------------------
+.mx-hero {
+  margin: 0.5rem 0 1rem;
+  padding: 3rem 2rem 2.5rem;
+  border-radius: 18px;
+  background: var(--mx-hero-bg);
+  text-align: center;
+}
+
+.mx-hero .mx-wordmark {
+  display: inline-block;
+  font-size: clamp(2.2rem, 7.5vw, 4.4rem);
+  letter-spacing: 0.03em;
+}
+
+.mx-acronym {
+  margin: 0.9rem auto 0;
+  font-size: 0.98rem;
+  color: var(--global-text-color-light);
+  font-style: italic;
+}
+
+.mx-acronym b {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--mx-mec);
+}
+
+.mx-funder {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.6rem;
+  margin: 1.1rem auto 0;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color);
+}
+
+a.mx-funder:hover {
+  color: var(--global-text-color);
+  border-color: var(--mx-accent);
+  text-decoration: none;
+}
+
+.mx-funder-label {
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+// Funder's logo: always on a white plate, never recoloured or inverted (light and dark mode)
+.mx-funder-logo {
+  box-sizing: content-box;
+  height: 76px;
+  width: auto;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.mx-funder-name {
+  font-family: $mx-font-display;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--mx-heading);
+}
+
+.mx-funder-programme {
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+.mx-funder-programme::before {
+  content: "· ";
+}
+
+.mx-hero h1 {
+  margin: 1.8rem auto 0.6rem;
+  font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+  font-weight: 700;
+}
+
+.mx-hero .mx-lead {
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.mx-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.6rem;
+}
+
+// ---- Buttons ---------------------------------------------------------------------
+a.mx-btn,
+.mx-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  border: 2px solid var(--mx-mec);
+  font-family: $mx-font-display;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+a.mx-btn-primary,
+button.mx-btn-primary {
+  background: var(--mx-mec);
+  color: #ffffff;
+}
+
+html[data-theme="dark"] a.mx-btn-primary,
+html[data-theme="dark"] button.mx-btn-primary {
+  color: #0e1f2b;
+}
+
+button.mx-btn {
+  cursor: pointer;
+}
+
+a.mx-btn-primary:hover,
+a.mx-btn-primary:focus-visible,
+button.mx-btn-primary:hover,
+button.mx-btn-primary:focus-visible {
+  background: var(--global-hover-color);
+  border-color: var(--global-hover-color);
+  color: var(--global-hover-text-color);
+}
+
+a.mx-btn-secondary {
+  background: transparent;
+  color: var(--mx-mec);
+}
+
+a.mx-btn-secondary:hover,
+a.mx-btn-secondary:focus-visible {
+  border-color: var(--global-hover-color);
+  color: var(--global-hover-color);
+}
+
+// ---- Cards -------------------------------------------------------------------------
+.mx-card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 14px;
+  padding: 1.35rem 1.35rem 1.1rem;
+}
+
+// Expertise uses h2 in cards (no section heading above them), styled like the h3 used elsewhere
+.mx-card h2,
+.mx-card h3 {
+  font-size: 1.1rem;
+  margin: 0.85rem 0 0.5rem;
+}
+
+.mx-card p {
+  margin-bottom: 0.6rem;
+}
+
+.mx-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--global-text-color-light);
+}
+
+.mx-card li {
+  margin-bottom: 0.25rem;
+}
+
+.mx-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: var(--mx-accent);
+  background: var(--mx-tint-aqua);
+}
+
+.mx-icon.peach {
+  background: var(--mx-tint-peach);
+  color: #c4683f;
+}
+
+.mx-icon.lavender {
+  background: var(--mx-tint-lavender);
+  color: #7d4f8e;
+}
+
+.mx-icon.mint {
+  background: var(--mx-tint-mint);
+  color: #2b8a6e;
+}
+
+html[data-theme="dark"] .mx-icon.peach {
+  color: #fbc9a9;
+}
+
+html[data-theme="dark"] .mx-icon.lavender {
+  color: #e2c3e6;
+}
+
+html[data-theme="dark"] .mx-icon.mint {
+  color: #a6e3cc;
+}
+
+// ---- Chips (sample types) ----------------------------------------------------------
+.mx-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0;
+  list-style: none;
+}
+
+.mx-chips li {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: var(--mx-surface);
+  border: 1px solid var(--global-divider-color);
+  font-size: 0.93rem;
+}
+
+.mx-chips li b {
+  font-weight: 600;
+  color: var(--mx-heading);
+}
+
+// ---- Steps (request workflow) ---------------------------------------------------------
+.mx-steps {
+  counter-reset: mx-step;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: 1.1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.mx-steps li {
+  counter-increment: mx-step;
+  position: relative;
+  padding: 1.1rem 1.1rem 1rem;
+  border-radius: 14px;
+  background: var(--mx-surface);
+}
+
+.mx-steps li::before {
+  content: counter(mx-step, decimal-leading-zero);
+  display: block;
+  font-family: $mx-font-display;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--mx-accent);
+  margin-bottom: 0.35rem;
+}
+
+.mx-steps li b {
+  display: block;
+  font-family: $mx-font-display;
+  font-weight: 600;
+  color: var(--mx-heading);
+  margin-bottom: 0.25rem;
+}
+
+.mx-steps li span {
+  color: var(--global-text-color-light);
+  font-size: 0.93rem;
+}
+
+// ---- Badges (site / status) -------------------------------------------------------------
+.mx-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.2rem 0 0.6rem;
+}
+
+.mx-badge {
+  display: inline-block;
+  padding: 0.12rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.mx-badge.marseille {
+  background: var(--mx-tint-lavender);
+  color: var(--mx-marseille-text);
+}
+
+.mx-badge.nice {
+  background: var(--mx-tint-aqua);
+  color: var(--mx-nice-text);
+}
+
+.mx-badge.soon {
+  background: var(--mx-tint-peach);
+  color: var(--mx-soon-text);
+}
+
+.mx-badge.planned {
+  background: var(--mx-tint-blue);
+  color: var(--mx-planned-text);
+}
+
+// ---- Instruments page ---------------------------------------------------------------------
+.mx-domain {
+  margin: 2.6rem 0 1rem;
+}
+
+.mx-domain-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.mx-domain-head h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.mx-domain-head p {
+  margin: 0.15rem 0 0;
+  color: var(--global-text-color-light);
+  font-size: 0.95rem;
+}
+
+.mx-card .mx-measures {
+  font-size: 0.93rem;
+  color: var(--global-text-color-light);
+}
+
+.mx-card .mx-equipment {
+  font-size: 0.88rem;
+  border-top: 1px dashed var(--global-divider-color);
+  padding-top: 0.55rem;
+  margin-top: 0.6rem;
+}
+
+// ---- People ----------------------------------------------------------------------------------
+.mx-person {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.mx-avatar {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-family: $mx-font-display;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, $mx-mec, $mx-pink 70%, $mx-peach);
+}
+
+.mx-person h3 {
+  margin: 0 0 0.15rem;
+  font-size: 1.02rem;
+}
+
+.mx-person p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--global-text-color-light);
+}
+
+.mx-person p.mx-person-title {
+  color: var(--global-text-color);
+  font-weight: 500;
+}
+
+.mx-list-plain {
+  list-style: none;
+  padding: 0;
+  columns: 2 16rem;
+  column-gap: 2rem;
+}
+
+.mx-list-plain li {
+  break-inside: avoid;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.mx-list-plain li b {
+  font-weight: 600;
+  color: var(--mx-heading);
+}
+
+// ---- Callout / form ------------------------------------------------------------------------------
+.mx-callout {
+  border-radius: 16px;
+  padding: 1.6rem 1.6rem 1.3rem;
+  background: var(--mx-hero-bg);
+  border: 1px solid var(--global-divider-color);
+}
+
+.mx-callout h2 {
+  margin-top: 0;
+}
+
+// Tally embed: always a white card (light and dark mode) so the form stays readable;
+// color-scheme: light keeps the browser from painting a dark backdrop behind the embedded page.
+.mx-form-frame {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 52rem;
+  padding: 1rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 14px;
+  background: #ffffff;
+  color-scheme: light;
+}
+
+// Before the click (tally-embed.liquid): same white card, shorter, with the button and the notice centred.
+// The card is white in both themes, so the notice uses a fixed dark colour rather than a theme variable.
+.mx-form-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  min-height: 14rem;
+  text-align: center;
+}
+
+.mx-form-notice {
+  max-width: 32rem;
+  margin: 0;
+  font-size: 0.88rem;
+  color: $mx-slate;
+}
+
+.mx-note {
+  font-size: 0.88rem;
+  color: var(--global-text-color-light);
+}
+
+// ---- Footer -----------------------------------------------------------------------------------------
+footer {
+  border-top: 3px solid transparent;
+  border-image: $mx-band-gradient 1;
+}
+
+@media (max-width: 576px) {
+  .mx-hero {
+    padding: 2.2rem 1.1rem 2rem;
+  }
+
+  .mx-section {
+    margin: 2.4rem 0;
+  }
+
+  // Stack the funder block so the logo can be larger and its second line stays legible
+  .mx-funder {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 14px;
+    padding: 0.7rem 1.1rem;
+  }
+
+  // Fill the stacked block's width instead of a fixed height, so the logo never overflows narrow screens
+  .mx-funder-logo {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+  }
+
+  .mx-funder-programme::before {
+    content: none;
+  }
+}

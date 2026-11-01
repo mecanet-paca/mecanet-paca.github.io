@@ -1,0 +1,38 @@
+# Interface strings, one block per language. Read in Liquid with:
+#   {% assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}  then  {{ t.key }}
+# Every key must exist in both languages.
+
+en:
+  lang_switch_label: EN
+  lang_switch_title: English version
+  lang_switch_aria: EN – English version
+  skip_to_content: Skip to content
+  nav_toggle: Toggle navigation
+  nav_current: (current)
+  theme_toggle_title: Change theme
+  theme_toggle_label: Change color theme
+  no_news: No news so far...
+  status_deploying: Under deployment
+  status_planned: Under development
+  tally_show_form: Show the request form
+  tally_notice: Loading the form connects to Tally (Belgium) and its service providers.
+  tally_iframe_title: MECDITRINA service request form
+  # month abbreviations for news dates (index 0 = January); English dates use strftime instead
+  months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+
+fr:
+  lang_switch_label: FR
+  lang_switch_title: Version française
+  lang_switch_aria: FR – Version française
+  skip_to_content: Aller au contenu
+  nav_toggle: Afficher ou masquer le menu
+  nav_current: (page actuelle)
+  theme_toggle_title: Changer de thème
+  theme_toggle_label: Changer le thème de couleur
+  no_news: Aucune actualité pour le moment.
+  status_deploying: En cours de déploiement
+  status_planned: En cours de développement
+  tally_show_form: Afficher le formulaire de demande
+  tally_notice: L'affichage du formulaire établit une connexion avec Tally (Belgique) et ses sous-traitants.
+  tally_iframe_title: Formulaire de demande de service MECDITRINA
+  months: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

@@ -1,0 +1,49 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+  Replaces jekyll-sitemap's output (the plugin skips generation when sitemap.xml exists in the source).
+  Same selection as the plugin (HTML pages and output collections, minus sitemap: false and 404), plus:
+  - hreflang alternates for pages sharing a `ref:` (English/French pairs), with x-default = English;
+  - collection documents dated in the future are skipped (Jekyll does not write them yet).
+  Nothing here is hand-maintained: new pages and new ref: pairs appear automatically.
+{%- endcomment -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- assign now = site.time | date: '%s' | plus: 0 -%}
+{%- assign collections = site.collections | where_exp: 'c', 'c.output != false' -%}
+{%- for collection in collections -%}
+  {%- assign docs = collection.docs | where_exp: 'd', 'd.sitemap != false' -%}
+  {%- for doc in docs -%}
+    {%- assign doc_time = doc.date | date: '%s' | plus: 0 -%}
+    {%- if doc_time <= now %}
+  <url>
+    <loc>{{ doc.url | replace: '/index.html', '/' | absolute_url | xml_escape }}</loc>
+    <lastmod>{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }}</lastmod>
+  </url>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign pages = site.html_pages | where_exp: 'p', 'p.sitemap != false' | where_exp: 'p', 'p.url != "/404.html"' -%}
+{%- for p in pages %}
+  <url>
+    <loc>{{ p.url | replace: '/index.html', '/' | absolute_url | xml_escape }}</loc>
+    {%- if p.last_modified_at %}
+    <lastmod>{{ p.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- endif -%}
+    {%- if p.ref -%}
+      {%- assign alternates = site.html_pages | where: 'ref', p.ref -%}
+      {%- if alternates.size > 1 -%}
+        {%- for a in alternates %}
+    <xhtml:link rel="alternate" hreflang="{{ a.lang }}" href="{{ a.url | absolute_url | xml_escape }}"/>
+        {%- endfor -%}
+        {%- assign default_page = alternates | where: 'lang', site.lang | first -%}
+        {%- if default_page %}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ default_page.url | absolute_url | xml_escape }}"/>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif %}
+  </url>
+{%- endfor %}
+</urlset>

@@ -1,0 +1,182 @@
+{% comment %}
+  Local override (bilingual): the nav lists only pages in the current page's language, "home" and the brand
+  link go to that language's home page, and an EN/FR switch links to the page with the same `ref:` in the
+  other language (or to that language's home page if there is none).
+{% endcomment %}
+{% assign cur_lang = page.lang | default: site.lang %}
+{% assign hdr = site.data.i18n[cur_lang] | default: site.data.i18n.en %}
+{% if cur_lang == 'fr' %}{% assign other_lang = 'en' %}{% else %}{% assign other_lang = 'fr' %}{% endif %}
+{% assign home_page = site.pages | where: 'ref', 'home' | where: 'lang', cur_lang | first %}
+{% unless home_page %}{% assign home_page = site.pages | where: 'ref', 'home' | where: 'lang', site.lang | first %}{% endunless %}
+{% assign counterpart = null %}
+{% if page.ref %}{% assign counterpart = site.pages | where: 'ref', page.ref | where: 'lang', other_lang | first %}{% endif %}
+{% unless counterpart %}{% assign counterpart = site.pages | where: 'ref', 'home' | where: 'lang', other_lang | first %}{% endunless %}
+<header>
+  <a class="mx-skip-link" href="#main-content">{{ hdr.skip_to_content }}</a>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
+    <div class="container">
+      {% if page.ref != 'home' %}
+        <a class="navbar-brand title font-weight-lighter" href="{{ home_page.url | relative_url }}">
+          {% comment %} Local override: coloured wordmark instead of the plain site title {% endcomment %}
+          {% if site.wordmark %}
+            {% include wordmark.liquid %}
+          {% elsif site.title == 'blank' %}
+            {% if site.first_name %}
+              <span class="font-weight-bold">
+                {{- site.first_name -}}
+              </span>
+            {% endif %}
+            {% if site.middle_name %}
+              {{- site.middle_name -}}
+            {% endif %}
+            {% if site.last_name %}
+              {{- site.last_name -}}
+            {% endif %}
+          {% else %}
+            {{- site.title -}}
+          {% endif %}
+        </a>
+      {% elsif site.enable_navbar_social %}
+        <!-- Social Icons -->
+        <div class="navbar-brand social">{% social_links %}</div>
+      {% endif %}
+      <!-- Navbar Toggle -->
+      <button
+        class="navbar-toggler collapsed navbar-toggler-main"
+        type="button"
+        data-nav-toggle="navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="{{ hdr.nav_toggle }}"
+      >
+        <span class="sr-only">{{ hdr.nav_toggle }}</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+          {% assign about_title = home_page.title %}
+
+          <!-- About -->
+          <li class="nav-item {% if page.ref == 'home' %}active{% endif %}">
+            <a class="nav-link" href="{{ home_page.url | relative_url }}">
+              {{- about_title }}
+              {% if page.ref == 'home' %}
+                <span class="sr-only">{{ hdr.nav_current }}</span>
+              {% endif %}
+            </a>
+          </li>
+
+          <!-- Other pages -->
+          {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+          {% for p in sorted_pages %}
+            {% if p.nav and p.autogen == null and p.lang == cur_lang %}
+              {% if p.dropdown %}
+                {% assign has_active_child = false %}
+                {% for child in p.children %}
+                  {% if page.title == child.title %}
+                    {% assign has_active_child = true %}
+                  {% endif %}
+                {% endfor %}
+                <li class="nav-item dropdown {% if page.title == p.title or has_active_child %}active{% endif %}">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-nav-dropdown-toggle="true"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {{- p.title }}
+                    {% if page.title == p.title or has_active_child %}
+                      <span class="sr-only">{{ hdr.nav_current }}</span>
+                    {% endif %}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    {% for child in p.children %}
+                      {% if child.title == 'divider' %}
+                        <div class="dropdown-divider"></div>
+                      {% else %}
+                        <a
+                          class="dropdown-item {% if page.title == child.title %}active{% endif %}"
+                          href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}"
+                        >
+                          {{- child.title -}}
+                        </a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </li>
+              {% else %}
+                {% assign parent_link = p.permalink | remove: 'index.html' %}
+                <li class="nav-item {% if page.url contains parent_link %}active{% endif %}">
+                  {%- if p.permalink contains '://' -%}
+                    {%- assign url = p.permalink -%}
+                  {%- elsif p.permalink contains '/blog/' -%}
+                    {%- assign url = '/blog/' -%}
+                  {%- else -%}
+                    {%- assign url = p.url -%}
+                  {%- endif %}
+                  <a class="nav-link" href="{{ url | relative_url }}">
+                    {{- p.title }}
+                    {% if page.url contains p.url %}
+                      <span class="sr-only">{{ hdr.nav_current }}</span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% if site.search_enabled %}
+            <!-- Search -->
+            <li class="nav-item">
+              <button id="search-toggle" type="button" title="Search" aria-label="Open search">
+                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+              </button>
+            </li>
+          {% endif %}
+          {% if counterpart %}
+            <!-- Language switch -->
+            {% assign t_other = site.data.i18n[other_lang] %}
+            <li class="nav-item mx-lang-switch">
+              <a
+                class="nav-link"
+                href="{{ counterpart.url | relative_url }}"
+                hreflang="{{ other_lang }}"
+                lang="{{ other_lang }}"
+                title="{{ t_other.lang_switch_title }}"
+                aria-label="{{ t_other.lang_switch_aria }}"
+              >
+                {{- t_other.lang_switch_label -}}
+              </a>
+            </li>
+          {% endif %}
+          {% if site.enable_darkmode %}
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" type="button" title="{{ hdr.theme_toggle_title }}" aria-label="{{ hdr.theme_toggle_label }}">
+                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              </button>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% if site.enable_progressbar %}
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  {% endif %}
+</header>
+{% comment %} Skip-link target: just before the gem's main container, which has no id {% endcomment %}
+<span id="main-content" tabindex="-1"></span>

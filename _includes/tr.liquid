@@ -1,0 +1,10 @@
+{%- comment -%}
+  Bilingual data field: on French pages, prints obj.<key>_fr if set, otherwise obj.<key> (English fallback).
+  Usage: {% include tr.liquid obj=d key='summary' %}
+{%- endcomment -%}
+{%- assign tr_key = include.key | append: '_fr' -%}
+{%- if page.lang == 'fr' and include.obj[tr_key] -%}
+  {{- include.obj[tr_key] -}}
+{%- else -%}
+  {{- include.obj[include.key] -}}
+{%- endif -%}

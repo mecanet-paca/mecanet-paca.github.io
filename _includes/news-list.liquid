@@ -1,0 +1,58 @@
+{% comment %}
+  Bilingual copy of al_folio_core's news.liquid (same markup for English).
+  French pages show each item's `content_fr` (inline items) or `title_fr`, falling back to English,
+  and French dates ("1er oct. 2026"). Items dated after the build time (site.time) are not shown yet.
+  Usage: {% include news-list.liquid limit=true %}
+{% endcomment %}
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+{% assign published_news = site.news | where_exp: 'item', 'item.date <= site.time' %}
+<div class="news">
+  {% if published_news.size > 0 %}
+    {% assign news_size = published_news | size %}
+    <div
+      class="table-responsive"
+      {% if include.limit and page.announcements.scrollable and news_size > 3 %}
+        style="max-height: 60vw"
+      {% endif %}
+    >
+      <table class="table table-sm table-borderless">
+        {% assign news = published_news | reverse %}
+        {% if include.limit and page.announcements.limit %}
+          {% assign news_limit = page.announcements.limit %}
+        {% else %}
+          {% assign news_limit = news_size %}
+        {% endif %}
+        {% for item in news limit: news_limit %}
+          <tr>
+            <th scope="row" style="width: 20%">
+              {%- if page.lang == 'fr' -%}
+                {%- assign day = item.date | date: '%-d' -%}
+                {%- assign month_index = item.date | date: '%-m' | minus: 1 -%}
+                {%- if day == '1' %}1er{% else %}{{ day }}{% endif %}
+                {{ t.months[month_index] }}
+                {{ item.date | date: '%Y' -}}
+              {%- else -%}
+                {{- item.date | date: '%b %d, %Y' -}}
+              {%- endif -%}
+            </th>
+            <td>
+              {% if item.inline %}
+                {% if page.lang == 'fr' and item.content_fr %}
+                  {{ item.content_fr | markdownify | remove: '<p>' | remove: '</p>' | strip | emojify }}
+                {% else %}
+                  {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+                {% endif %}
+              {% else %}
+                <a class="news-title" href="{{ item.url | relative_url }}">
+                  {%- if page.lang == 'fr' and item.title_fr %}{{ item.title_fr }}{% else %}{{ item.title }}{% endif -%}
+                </a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% else %}
+    <p>{{ t.no_news }}</p>
+  {% endif %}
+</div>

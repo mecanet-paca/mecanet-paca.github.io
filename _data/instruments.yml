@@ -1,0 +1,120 @@
+# MECDITRINA technology portfolio, shown on the Instruments page.
+# Edit this file to add, update or remove techniques; no HTML needed.
+#
+# sites: any of [marseille, nice]
+# status: available | deploying | planned
+#   deploying = being deployed during the project ("Under deployment")
+#   planned   = planned for the future ("Under development")
+# *_fr fields: French text for French pages (via _includes/tr.liquid); English is used when a *_fr field is missing.
+# icon: a Font Awesome solid icon name (https://fontawesome.com/search?ic=free&o=r)
+# tint: aqua | lavender | peach | mint   (background colour of the icon)
+
+- domain: Mechanical characterisation across scales
+  domain_fr: "Caractérisation mécanique multi-échelle"
+  summary: Elasticity and viscoelasticity of samples from nanometre to centimetre scales, under physiological conditions.
+  summary_fr: "Élasticité et viscoélasticité d'échantillons, de l'échelle du nanomètre à celle du centimètre, en conditions physiologiques."
+  icon: fa-ruler-combined
+  tint: aqua
+  techniques:
+    - name: AFM nanoindentation and microrheology
+      name_fr: "Nanoindentation et microrhéologie par microscopie à force atomique (AFM)"
+      measures: Elasticity and viscoelasticity of membranes, vesicles, bacteria, cells and tissues; high-resolution topographical imaging.
+      measures_fr: "Élasticité et viscoélasticité de membranes, vésicules, bactéries, cellules et tissus ; imagerie topographique à haute résolution."
+      sites: [marseille, nice]
+      status: available
+      equipment: "Marseille: Bruker NanoWizard 4 and 5 on fluorescence microscopes (TIRF, spinning disk). Nice: AFM available, upgrade planned."
+      equipment_fr: "Marseille : Bruker NanoWizard 4 et 5 sur microscopes à fluorescence (TIRF, spinning disk). Nice : AFM disponible, mise à niveau prévue."
+    - name: High-speed AFM
+      name_fr: "AFM haute vitesse"
+      measures: Dynamic imaging of biomolecules and membranes at the nanoscale.
+      measures_fr: "Imagerie dynamique de biomolécules et de membranes à l'échelle nanométrique."
+      sites: [marseille]
+      status: available
+      equipment: "RIBM PS-NEX high-speed AFM."
+      equipment_fr: "AFM haute vitesse RIBM PS-NEX."
+    - name: AFM coupled to TIRF microscopy
+      name_fr: "AFM couplé à la microscopie TIRF"
+      measures: Simultaneous force measurement and near-membrane fluorescence imaging.
+      measures_fr: "Mesure de force simultanée à l'imagerie de fluorescence au voisinage de la membrane."
+      sites: [marseille]
+      status: deploying
+
+- domain: Cell–matrix interactions and force generation
+  domain_fr: "Interactions cellule–matrice et génération de forces"
+  summary: Engineered substrates to measure how cells pull on and respond to their microenvironment.
+  summary_fr: "Substrats à propriétés contrôlées pour mesurer comment les cellules exercent des forces sur leur microenvironnement et y répondent."
+  icon: fa-arrows-to-dot
+  tint: lavender
+  techniques:
+    - name: Traction force microscopy (TFM)
+      name_fr: "Microscopie de force de traction (TFM)"
+      measures: Quantitative vector maps of the forces exerted by single cells or groups of cells on their substrate.
+      measures_fr: "Cartes vectorielles quantitatives des forces exercées par des cellules isolées ou des groupes de cellules sur leur substrat."
+      sites: [nice, marseille]
+      status: available
+      equipment: "Fully operational in Nice; being developed in Marseille."
+      equipment_fr: "Pleinement opérationnelle à Nice ; en cours de développement à Marseille."
+    - name: Engineered substrates and micropatterning
+      name_fr: "Substrats à propriétés contrôlées et micropatterning"
+      measures: Polyacrylamide hydrogels with user-defined stiffness, controlled matrix composition (collagen, fibronectin…), micropatterned adhesive geometries.
+      measures_fr: "Hydrogels de polyacrylamide de rigidité définie par l'utilisateur, composition de matrice contrôlée (collagène, fibronectine…), motifs adhésifs contrôlés (micropatterning)."
+      sites: [marseille]
+      status: available
+
+- domain: Mechanical stimulation and force application
+  domain_fr: "Stimulation mécanique et application de forces"
+  summary: Controlled mechanical perturbation to study mechanotransduction.
+  summary_fr: "Perturbation mécanique contrôlée pour étudier la mécanotransduction."
+  icon: fa-hand-back-fist
+  tint: peach
+  techniques:
+    - name: Cyclic uniaxial cell stretching
+      name_fr: "Étirement cellulaire cyclique uniaxial"
+      measures: Cell responses to stretch with tunable frequency and amplitude.
+      measures_fr: "Réponses cellulaires à l'étirement, à fréquence et amplitude réglables."
+      sites: [nice]
+      status: available
+    - name: Magnetic tweezers
+      name_fr: "Pinces magnétiques"
+      measures: Localised force application to membrane receptors or intracellular structures through magnetic beads.
+      measures_fr: "Application localisée de forces sur des récepteurs membranaires ou des structures intracellulaires à l'aide de billes magnétiques."
+      sites: [nice]
+      status: available
+    - name: Compression
+      name_fr: "Compression"
+      measures: Cell and tissue responses to compressive stress.
+      measures_fr: "Réponses des cellules et des tissus à une contrainte de compression."
+      sites: [marseille]
+      status: planned
+    - name: Optical tweezers
+      name_fr: "Pinces optiques"
+      measures: Calibrated pico- to nanonewton forces for cell–matrix and cell–cell interactions and active microrheology in 3D matrices and organoids.
+      measures_fr: "Forces calibrées du piconewton au nanonewton pour l'étude des interactions cellule–matrice et cellule–cellule, et microrhéologie active dans des matrices 3D et des organoïdes."
+      sites: [marseille]
+      status: planned
+
+- domain: Molecular-scale force probing and affinity
+  domain_fr: "Forces à l'échelle moléculaire et affinité"
+  summary: From single-molecule unbinding forces to cell–cell adhesion.
+  summary_fr: "Des forces de rupture sur molécule unique à l'adhésion cellule–cellule."
+  icon: fa-link
+  tint: mint
+  techniques:
+    - name: Single-molecule force spectroscopy (AFM)
+      name_fr: "Spectroscopie de force sur molécule unique par AFM (SMFS)"
+      measures: Unfolding and unbinding forces of molecular interactions.
+      measures_fr: "Forces de dépliement et de rupture des interactions moléculaires."
+      sites: [marseille]
+      status: available
+    - name: Single-cell force spectroscopy
+      name_fr: "Spectroscopie de force sur cellule unique"
+      measures: Cell–cell and cell–ligand adhesion forces, detachment work and interaction dynamics.
+      measures_fr: "Forces d'adhésion cellule–cellule et cellule–ligand, travail de détachement et dynamique des interactions."
+      sites: [marseille]
+      status: available
+    - name: Surface plasmon resonance (SPR)
+      name_fr: "Résonance plasmonique de surface (SPR)"
+      measures: Binding affinities and kinetics, for example antibody–ligand interactions.
+      measures_fr: "Affinités et cinétiques de liaison, par exemple pour des interactions anticorps–ligand."
+      sites: [marseille]
+      status: available

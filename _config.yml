@@ -1,0 +1,540 @@
+# -----------------------------------------------------------------------------
+# Site settings
+# -----------------------------------------------------------------------------
+
+title: MECDITRINA # site title, shown in the browser tab; the navbar shows the coloured wordmark instead
+first_name: MECDITRINA # used in the footer copyright line
+middle_name:
+last_name: consortium
+wordmark: # coloured wordmark (navbar and home page): first part in teal, second part in the gradient. Delete to fall back to the plain title.
+  first: MEC
+  second: DITRINA
+funder: # shown on the home page, right under the wordmark and acronym
+  name: Canceropôle PACA
+  programme: Actions Structurantes
+  url: https://canceropole-paca.com/
+  logo: canceropole-paca.png # file in /assets/img/; when set, it replaces the name as text
+  logo_alt: "Canceropôle Provence-Alpes-Côte d'Azur"
+contact_note: >
+  The fastest way to reach us is the request form on the Contact page.
+description: > # the ">" symbol means to ignore newlines until "footer_text:"
+  MECDITRINA — MEChanobiology Devices and Innovative Tools for Research IN cAncer. A regional network giving researchers in
+  Provence-Alpes-Côte d'Azur access to mechanobiology tools, expertise and data analysis, across Marseille and Nice.
+# Bilingual: footer_text cannot contain Liquid, so both languages are here and
+# _sass/_mecditrina.scss shows the one matching <html lang> (.mx-lang-en / .mx-lang-fr).
+footer_text: >
+  <span class="mx-lang-en" lang="en">Funded by <a href="https://canceropole-paca.com/" target="_blank" rel="noopener">Canceropôle PACA</a>
+  (Actions Structurantes). <a href="/legal/">Legal notice &amp; data protection</a>. Built with
+  <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a>, hosted by GitHub Pages.</span>
+  <span class="mx-lang-fr" lang="fr">Financé par le <a href="https://canceropole-paca.com/" target="_blank" rel="noopener">Canceropôle PACA</a>
+  (Actions Structurantes). <a href="/fr/mentions-legales/">Mentions légales et protection des données</a>. Réalisé avec
+  <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a>, hébergé par GitHub Pages.</span>
+keywords: mechanobiology, cancer, atomic force microscopy, traction force microscopy, biophysics, Marseille, Nice, PACA
+lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
+icon: favicon.svg # file in /assets/img/
+apple_touch_icon: apple-touch-icon.png # 180x180 PNG in /assets/img/
+
+url: https://mecditrina.github.io # GitHub Pages site of Mecditrina/mecditrina.github.io (change for a custom domain)
+baseurl: # leave blank: the site is served from the root of <org>.github.io
+preview: true # true before launch: robots.txt disallows all crawlers and omits the sitemap. Set to false at launch.
+last_updated: false # set to true if you want to display last updated in the footer
+impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
+back_to_top: true # set to false to disable the back to top button
+
+# -----------------------------------------------------------------------------
+# Theme
+# -----------------------------------------------------------------------------
+
+# repo color theme
+repo_theme_light: default # https://github.com/stats-organization/github-stats-extended/blob/master/packages/core/src/themes/README.md
+repo_theme_dark: dark # https://github.com/stats-organization/github-stats-extended/blob/master/packages/core/src/themes/README.md
+# Off by default: addresses are then split at build time so the HTML contains no
+# `user@host` and no `mailto:` for harvesters to scrape, and clicking one copies
+# it to the clipboard instead of opening a mail client.
+# See "Protecting email addresses from scrapers" in docs/CUSTOMIZE.md.
+protect_email: false
+
+# Off by default: the free public github-profile-trophy instance is disabled
+# (its Vercel deployment answers HTTP 402 / DEPLOYMENT_DISABLED), so every trophy
+# image 404s. The project itself is still open source and free — self-host it and
+# point external_services.github_profile_trophy_url at your instance, then set
+# enabled: true. See docs/CUSTOMIZE.md.
+repo_trophies:
+  enabled: false
+  theme_light: flat # https://github.com/ryo-ma/github-profile-trophy
+  theme_dark: gitdimmed # https://github.com/ryo-ma/github-profile-trophy
+
+# External service URLs for repository page
+# To use a different instance or service for displaying GitHub stats and trophies,
+# update these URLs. These are used in the repository templates.
+external_services:
+  github_readme_stats_url: https://github-stats-extended.vercel.app
+  github_profile_trophy_url: https://github-profile-trophy.vercel.app
+
+# -----------------------------------------------------------------------------
+# al-folio API (v1.x)
+# -----------------------------------------------------------------------------
+
+al_folio:
+  api_version: 1
+  style_engine: tailwind
+  tailwind:
+    version: 4.1.18
+    preflight: false
+    css_entry: assets/tailwind/app.css
+  distill:
+    engine: distillpub-template
+    source: al-org-dev/distill-template#al-folio
+    allow_remote_loader: false
+  features:
+    cv:
+      enabled: false
+    distill:
+      enabled: false
+  compat:
+    bootstrap:
+      enabled: false
+      support_window: v1.0-v1.2
+      deprecates_in: v1.3
+      removed_in: v2.0
+  upgrade:
+    channel: stable
+    auto_apply_safe_fixes: false
+
+# -----------------------------------------------------------------------------
+# RSS Feed
+# -----------------------------------------------------------------------------
+# will use title and url fields
+# Take a look to https://github.com/jekyll/jekyll-feed for more customization
+
+# -----------------------------------------------------------------------------
+# Layout
+# -----------------------------------------------------------------------------
+
+navbar_fixed: true
+footer_fixed: false
+search_enabled: false
+socials_in_search: true
+posts_in_search: true
+bib_search: false
+
+# Dimensions
+max_width: 930px
+
+# -----------------------------------------------------------------------------
+# Open Graph & Schema.org
+# -----------------------------------------------------------------------------
+# Display links to the page with a preview object on social media.
+# see https://schema.org/docs/faq.html for more information
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: false # Include Schema.org in the HTML head
+og_image: /assets/img/og-image.png # The site-wide (default for all links) Open Graph preview image
+
+# -----------------------------------------------------------------------------
+# Analytics and search engine verification
+# -----------------------------------------------------------------------------
+
+analytics:
+  # For Google Analytics, see https://support.google.com/analytics/answer/10447272?hl=en&ref_topic=14088998&sjid=5129943941510317771-SA#zippy=%2Cgoogle-sites
+  # and follow the instructions for Google Sites. You will need to create a Google Analytics property and copy the Google tag ID.
+  google: # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
+  cronitor: # cronitor RUM analytics site ID (format: XXXXXXXXX)
+  pirsch: # your Pirsch analytics site ID (length 32 characters)
+  openpanel: # your Openpanel analytics client ID (format: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)
+  cloudflare: # your Cloudflare Web Analytics beacon token (32 hex characters)
+enable_simple_analytics: false # Simple Analytics identifies a site by its domain, so it has no ID to set above
+
+# For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
+google_site_verification: # your google-site-verification ID (Google Search Console)
+bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
+
+# -----------------------------------------------------------------------------
+# Blog
+# -----------------------------------------------------------------------------
+
+blog_name: MECDITRINA news
+blog_description: News from the MECDITRINA mechanobiology network
+permalink: /blog/:year/:title/
+lsi: false # produce an index for related posts
+
+# Pagination
+pagination:
+  enabled: true
+
+related_blog_posts:
+  enabled: true
+  max_related: 5
+
+# Giscus comments (RECOMMENDED)
+# Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
+giscus:
+  repo: # <your-github-user-name>/<your-github-repo-name>
+  repo_id: # leave empty or specify your repo_id (see https://giscus.app/)
+  category: Comments # name of the category under which discussions will be created
+  category_id: # leave empty or specify your category_id (see https://giscus.app/)
+  mapping: title # identify discussions by post title
+  strict: 1 # use strict identification mode
+  reactions_enabled: 1 # enable (1) or disable (0) emoji reactions
+  input_position: bottom # whether to display input form below (bottom) or above (top) the comments
+  dark_theme: dark # name of the dark color scheme (preferred works well with al-folio dark mode)
+  light_theme: light # name of the light color scheme (preferred works well with al-folio light mode)
+  emit_metadata: 0
+  lang: en
+
+# Disqus comments (DEPRECATED)
+disqus_shortname:
+# https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+
+# External sources.
+# If you have blog posts published on medium.com or other external sources,
+# you can display them in your blog by adding a link to the RSS feed.
+# Optional: Set default categories and tags for posts from each source.
+external_sources: []
+
+# -----------------------------------------------------------------------------
+# Newsletter
+# -----------------------------------------------------------------------------
+
+newsletter:
+  enabled: false
+  endpoint: # your loops endpoint (e.g., https://app.loops.so/api/newsletter-form/YOUR-ENDPOINT)
+  # https://loops.so/docs/forms/custom-form
+
+# -----------------------------------------------------------------------------
+# Collections
+# -----------------------------------------------------------------------------
+
+collections:
+  news:
+    defaults:
+      layout: post
+    output: false # news items are inline (shown in the news lists only): no separate page or sitemap entry
+  projects:
+    output: true
+
+# -----------------------------------------------------------------------------
+# Jekyll settings
+# -----------------------------------------------------------------------------
+
+# Markdown and syntax highlight
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+
+# Includes & excludes
+include: ["_pages"]
+exclude:
+  - NOTES.local.md
+  - requirements.txt
+  - assets/bibliography/2018-12-22-distill.bib
+  - AGENTS.md
+  - al-folio-upgrade-report.md
+  - bin/
+  - CLAUDE.md
+  - Dockerfile
+  - docker-compose.yml
+  - docker-compose-slim.yml
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - lighthouse_results/
+  - package.json
+  - package-lock.json
+  - purgecss.config.js
+  - README.md
+  - readme_preview/
+  - gems/
+  - migrations/
+  - vendor
+keep_files:
+  - CNAME
+  - .nojekyll
+
+# Use al_folio_core as the theme runtime; local files can still override theme files.
+theme: al_folio_core
+
+# Plug-ins
+plugins:
+  - jekyll-archives-v2
+  - jekyll-cache-bust
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  - jekyll-imagemagick
+  - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  - jekyll-minifier
+  - jekyll-paginate-v2
+  - jekyll-regex-replace
+  - jekyll/scholar
+  - jekyll-sitemap
+  - jekyll-socials
+  - jekyll-tabs
+  - jekyll-terser
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
+
+  # al-folio plugins
+  - al_folio_core
+  - al_icons
+  - al_folio_cv
+  - al_folio_distill
+  - al_folio_upgrade
+  - al_folio_bootstrap_compat
+  - al_cookie
+  - al_analytics
+  - al_citations
+  - al_ext_posts
+  - al_search
+  - al_charts
+  - al_math
+  - al_comments
+  - al_newsletter
+  - al_email_protect
+  - al_marimo
+  - al_rtl
+
+# Sitemap settings
+defaults:
+  # Bilingual site: every page and news item is English unless it lives in _pages/fr/.
+  # Pages in both languages share a `ref:` key so the header can link each one to its counterpart.
+  - scope:
+      path: ""
+    values:
+      lang: en
+  - scope:
+      path: "_pages/fr"
+    values:
+      lang: fr
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
+
+sass:
+  style: compressed
+
+# -----------------------------------------------------------------------------
+# Jekyll Minifier
+# -----------------------------------------------------------------------------
+
+jekyll-minifier:
+  compress_javascript: false # set to false since we are using terser as the js minifier
+  # CSS is already minified upstream (Tailwind build ships tailwind.css; main.scss is compiled
+  # with sass `style: compressed`). Re-minifying via cssminify2 mangles Tailwind v4 spacing
+  # tokens inside calc(), turning `var(--spacing)` into the invalid `var( -  - spacing)` and
+  # breaking every spacing/positioning utility (e.g. .fixed-top -> broken navbar). Disable it.
+  compress_css: false
+  # JS minification is delegated to jekyll-terser (compress_javascript above is false).
+  exclude: ["robots.txt"]
+
+# -----------------------------------------------------------------------------
+# Terser
+# -----------------------------------------------------------------------------
+
+terser:
+  compress:
+    drop_console: true
+
+# -----------------------------------------------------------------------------
+# Jekyll Archives
+# -----------------------------------------------------------------------------
+
+jekyll-archives:
+  posts:
+    enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+    permalinks:
+      year: "/blog/:year/"
+      tags: "/blog/:type/:name/"
+      categories: "/blog/:type/:name/"
+
+display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
+display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
+
+# -----------------------------------------------------------------------------
+# Jekyll Scholar
+# -----------------------------------------------------------------------------
+
+scholar:
+  last_name: [Einstein]
+  first_name: [Albert, A.]
+
+  style: apa
+  locale: en
+
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+  # Note: if you have latex math in your bibtex, the latex filter
+  # preprocessing may conflict with MathJAX if the latter is enabled.
+  # See https://github.com/alshedivat/al-folio/issues/357.
+  bibtex_filters: [latex, smallcaps, superscript]
+
+  replace_strings: true
+  join_strings: true
+
+  details_dir: bibliography
+  details_link: Details
+
+  query: "@*"
+  group_by: year
+  group_order: descending
+
+# Display different badges withs stats for your publications
+# Customize badge behavior in _layouts/bib.liquid
+enable_publication_badges:
+  altmetric: false # Altmetric badge (Customization options: https://badge-docs.altmetric.com/index.html)
+  dimensions: false # Dimensions badge (Customization options: https://badge.dimensions.ai/)
+  google_scholar: true # Google Scholar badge (https://scholar.google.com/intl/en/scholar/citations.html)
+  inspirehep: true # Inspire HEP badge (https://help.inspirehep.net/knowledge-base/citation-metrics/)
+
+# Filter out certain bibtex entry keywords used internally from the bib output
+filtered_bibtex_keywords:
+  [
+    abbr,
+    abstract,
+    additional_info,
+    altmetric,
+    annotation,
+    arxiv,
+    award,
+    award_name,
+    bibtex_show,
+    blog,
+    code,
+    dimensions,
+    eprint,
+    google_scholar_id,
+    hal,
+    html,
+    inspirehep_id,
+    pdf,
+    pmid,
+    poster,
+    preview,
+    selected,
+    slides,
+    supp,
+    video,
+    website,
+  ]
+
+# Maximum number of authors to be shown for each publication (more authors are visible on click)
+max_author_limit: 3 # leave blank to always show all authors
+more_authors_animation_delay: 10 # more authors are revealed on click using animation; smaller delay means faster animation
+
+# Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
+enable_publication_thumbnails: true
+
+# -----------------------------------------------------------------------------
+# Jekyll Link Attributes
+# -----------------------------------------------------------------------------
+
+# These are the defaults
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+  exclude:
+
+# -----------------------------------------------------------------------------
+# Responsive WebP Images
+# -----------------------------------------------------------------------------
+
+# MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
+#   convert -version
+imagemagick:
+  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  widths:
+    - 480
+    - 800
+    - 1400
+  input_directories:
+    - assets/img/
+  input_formats:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".tiff"
+    - ".gif"
+  output_formats:
+    webp: "-auto-orient -quality 85"
+
+# Lazy loading images
+#   If you enable lazy loading, all images will add the loading="lazy" attribute.
+#   This will make your site load faster, but it may not be supported in all browsers.
+#   You can also set loading="" to other values for specific images to override the default behavior.
+#   Options: "auto", "eager", "lazy"
+#   See https://web.dev/browser-level-image-lazy-loading/ for more information.
+lazy_loading_images: true # enables lazy loading of images (recommended)
+
+# -----------------------------------------------------------------------------
+# Optional Features
+# -----------------------------------------------------------------------------
+
+enable_google_verification: false # enables google site verification
+enable_bing_verification: false # enables bing site verification
+enable_cookie_consent: false # enables GDPR-compliant cookie consent dialog (https://github.com/orestbida/cookieconsent)
+enable_masonry: false # enables automatic project cards arrangement
+enable_math: false # enables math typesetting (uses MathJax)
+enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
+enable_darkmode: true # enables switching between light/dark modes
+enable_navbar_social: false # enables displaying social links in the navbar on the about page
+enable_project_categories: false # enables categorization of projects into multiple categories
+enable_medium_zoom: false # enables image zoom feature (as on medium.com)
+enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
+enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
+
+# -----------------------------------------------------------------------------
+# Library versions
+# -----------------------------------------------------------------------------
+
+# Libraries the pages load. They are vendored (committed) in assets/vendor/ and served from this site, so builds
+# need no network access and the pages make no third-party requests. The integrity hashes are those of the vendored
+# files (identical to the npm releases). To update a library, see "Vendored libraries" in CLAUDE.md.
+third_party_libraries:
+  download: false # files are already vendored in assets/vendor/; nothing is downloaded at build time
+  fontawesome:
+    integrity:
+      css: "sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c="
+    url:
+      css: "/assets/vendor/fontawesome/css/all.min.css" # loads ../webfonts/*.woff2
+    version: "7.2.0" # @fortawesome/fontawesome-free
+  vanilla-back-to-top:
+    integrity:
+      js: "sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg="
+    url:
+      js: "/assets/vendor/vanilla-back-to-top/vanilla-back-to-top.min.js"
+    version: "7.2.1"
+
+# -----------------------------------------------------------------------------
+# Get external JSON data
+# -----------------------------------------------------------------------------
+
+jekyll_get_json:
+  - data: resume
+    json: assets/json/resume.json # it can also be an url
+
+jsonresume:
+  - basics
+  - work
+  - education
+  - publications
+  - projects
+  - volunteer
+  - awards
+  - certificates
+  - skills
+  - languages
+  - interests
+  - references

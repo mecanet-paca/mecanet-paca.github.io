@@ -1,0 +1,16 @@
+---
+permalink: /robots.txt
+---
+{%- comment -%}
+  preview: true in _config.yml → ask all crawlers to stay away and do not advertise the sitemap.
+  Set preview: false at launch.
+{%- endcomment -%}
+{%- if site.preview -%}
+User-agent: *
+Disallow: /
+{% else -%}
+User-agent: *
+Disallow:
+
+Sitemap: {{ site.baseurl | prepend: site.url }}/sitemap.xml
+{% endif -%}
