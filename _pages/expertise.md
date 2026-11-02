@@ -9,7 +9,7 @@ nav_order: 2
 ---
 
 <p class="mx-section-intro">
-  MECDITRINA is not a service platform that delivers results: it is a network of physicists and mechanobiologists who work with you
+  MECANET is not a service platform that delivers results: it is a network of physicists and mechanobiologists who work with you
   on your question, and train you so you can run the measurements yourself whenever the technique allows it.
 </p>
 
@@ -24,7 +24,7 @@ nav_order: 2
     </ul>
   </div>
   <div class="mx-card">
-    <span class="mx-icon lavender"><i class="fa-solid fa-table-cells"></i></span>
+    <span class="mx-icon purple"><i class="fa-solid fa-table-cells"></i></span>
     <h2>Micropatterning</h2>
     <ul>
       <li>Adhesive patterns to control cell shape and spreading</li>
@@ -32,7 +32,7 @@ nav_order: 2
     </ul>
   </div>
   <div class="mx-card">
-    <span class="mx-icon peach"><i class="fa-solid fa-chart-line"></i></span>
+    <span class="mx-icon yellow"><i class="fa-solid fa-chart-line"></i></span>
     <h2>Data analysis and modelling</h2>
     <ul>
       <li>Image and force analysis, quantification</li>
@@ -41,7 +41,7 @@ nav_order: 2
     </ul>
   </div>
   <div class="mx-card">
-    <span class="mx-icon mint"><i class="fa-solid fa-chalkboard-user"></i></span>
+    <span class="mx-icon pink"><i class="fa-solid fa-chalkboard-user"></i></span>
     <h2>Training</h2>
     <ul>
       <li>Hands-on sessions in small groups (2–3 users) in Marseille or Nice</li>
@@ -61,7 +61,7 @@ nav_order: 2
 <section class="mx-section">
   <h2>Beyond cancer</h2>
   <p>
-    Although centred on cancer research, MECDITRINA is open to other fields where mechanics matters: developmental biology,
+    Although centred on cancer research, MECANET is open to other fields where mechanics matters: developmental biology,
     cardiovascular and nervous systems, genetic diseases and ageing.
   </p>
 </section>

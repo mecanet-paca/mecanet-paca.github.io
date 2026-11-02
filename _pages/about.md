@@ -9,8 +9,7 @@ announcements:
 ---
 
 <section class="mx-hero">
-  {% include wordmark.liquid %}
-  <p class="mx-acronym"><b>MEC</b>hanobiology <b>D</b>evices and <b>I</b>nnovative <b>T</b>ools for <b>R</b>esearch <b>IN</b> c<b>A</b>ncer</p>
+  {% include logo.liquid variant='lockup' %}
   <a class="mx-funder" href="{{ site.funder.url }}" target="_blank" rel="noopener">
     <span class="mx-funder-label">Funded by</span>
     {% if site.funder.logo %}
@@ -34,7 +33,8 @@ announcements:
 <section class="mx-section">
   <h2>A service for researchers</h2>
   <p class="mx-section-intro">
-    MECDITRINA links the mechanobiology expertise already present across the region into a single entry point. You bring the
+    MECANET is a structuring action of Canceropôle PACA (October 2026 – June 2028). It links the mechanobiology expertise already
+    present across the region into a single entry point. You bring the
     biological question; we help you find the right technique, the right experts and the right way to analyse the data.
   </p>
   <div class="mx-grid">
@@ -48,7 +48,7 @@ announcements:
       </ul>
     </div>
     <div class="mx-card">
-      <span class="mx-icon lavender"><i class="fa-solid fa-user-gear"></i></span>
+      <span class="mx-icon purple"><i class="fa-solid fa-user-gear"></i></span>
       <h3>Expertise and support</h3>
       <ul>
         <li>Experimental design</li>
@@ -58,7 +58,7 @@ announcements:
       </ul>
     </div>
     <div class="mx-card">
-      <span class="mx-icon peach"><i class="fa-solid fa-chart-line"></i></span>
+      <span class="mx-icon yellow"><i class="fa-solid fa-chart-line"></i></span>
       <h3>Data analysis and modelling</h3>
       <ul>
         <li>Image and force analysis</li>
@@ -112,12 +112,4 @@ announcements:
 <section class="mx-section">
   <h2>News</h2>
   {% include news-list.liquid limit=true %}
-</section>
-
-<section class="mx-section mx-callout">
-  <h2>About the name</h2>
-  <p>
-    Mecditrina refers to Meditrina, a Roman goddess associated with healing, in line with the project's ambition to contribute
-    to new approaches against cancer and other diseases. MECDITRINA is a structuring action of Canceropôle PACA (October 2026 – June 2028).
-  </p>
 </section>

@@ -3,7 +3,7 @@ layout: page
 title: Instruments
 permalink: /instruments/
 ref: instruments
-description: The MECDITRINA technology portfolio, across the Marseille and Nice sites.
+description: The MECANET technology portfolio, across the Marseille and Nice sites.
 nav: true
 nav_order: 1
 ---

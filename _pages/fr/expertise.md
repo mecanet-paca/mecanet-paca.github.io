@@ -9,7 +9,7 @@ nav_order: 2
 ---
 
 <p class="mx-section-intro">
-  MECDITRINA n'est pas une plateforme de service qui livre des résultats : c'est un réseau de physiciens et de mécanobiologistes qui
+  MECANET n'est pas une plateforme de service qui livre des résultats : c'est un réseau de physiciens et de mécanobiologistes qui
   travaillent avec vous sur votre question et vous forment pour que vous puissiez réaliser vous-même les mesures lorsque la technique
   le permet.
 </p>
@@ -25,7 +25,7 @@ nav_order: 2
     </ul>
   </div>
   <div class="mx-card">
-    <span class="mx-icon lavender"><i class="fa-solid fa-table-cells"></i></span>
+    <span class="mx-icon purple"><i class="fa-solid fa-table-cells"></i></span>
     <h2>Micropatterning</h2>
     <ul>
       <li>Motifs adhésifs pour contrôler la forme et l'étalement des cellules</li>
@@ -33,7 +33,7 @@ nav_order: 2
     </ul>
   </div>
   <div class="mx-card">
-    <span class="mx-icon peach"><i class="fa-solid fa-chart-line"></i></span>
+    <span class="mx-icon yellow"><i class="fa-solid fa-chart-line"></i></span>
     <h2>Analyse de données et modélisation</h2>
     <ul>
       <li>Analyse d'images et de forces, quantification</li>
@@ -42,7 +42,7 @@ nav_order: 2
     </ul>
   </div>
   <div class="mx-card">
-    <span class="mx-icon mint"><i class="fa-solid fa-chalkboard-user"></i></span>
+    <span class="mx-icon pink"><i class="fa-solid fa-chalkboard-user"></i></span>
     <h2>Formation</h2>
     <ul>
       <li>Sessions pratiques en petits groupes (2 à 3 utilisateurs) à Marseille ou à Nice</li>
@@ -62,7 +62,7 @@ nav_order: 2
 <section class="mx-section">
   <h2>Au-delà du cancer</h2>
   <p>
-    Bien que centré sur la recherche sur le cancer, MECDITRINA est ouvert à d'autres domaines où la mécanique joue un rôle : biologie
+    Bien que centré sur la recherche sur le cancer, MECANET est ouvert à d'autres domaines où la mécanique joue un rôle : biologie
     du développement, systèmes cardiovasculaire et nerveux, maladies génétiques et vieillissement.
   </p>
 </section>

@@ -8,9 +8,9 @@ description: Mentions légales et traitement des données envoyées via ce site.
 
 ## Éditeur
 
-Ce site est édité par les coordinateurs de MECDITRINA, action structurante financée par le Canceropôle PACA.
+Ce site est édité par les coordinateurs de MECANET, action structurante financée par le Canceropôle PACA.
 
-Directeurs de la publication, coordinateurs de MECDITRINA :
+Directeurs de la publication, coordinateurs de MECANET :
 
 - Etienne Boulter, IRCAN (Inserm U1081 / CNRS UMR 7284, Université Côte d'Azur), Faculté de Médecine, 28 avenue de Valombrose, 06107 Nice Cedex 2, France.
 - Michael Sebbagh, DyNaMo U1325, Inserm & Aix-Marseille Université, Bâtiment Inserm TPR2 bloc 5, Case 909, 163 avenue de Luminy, 13009 Marseille, France.
