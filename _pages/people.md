@@ -3,7 +3,7 @@ layout: page
 title: People
 permalink: /people/
 ref: people
-description: The teams and experts behind MECDITRINA.
+description: The teams and experts behind MECANET.
 nav: true
 nav_order: 4
 ---

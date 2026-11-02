@@ -2,14 +2,11 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: MECDITRINA # site title, shown in the browser tab; the navbar shows the coloured wordmark instead
-first_name: MECDITRINA # used in the footer copyright line
+title: MECANET # site title, shown in the browser tab; the navbar shows the logo instead
+first_name: MECANET # used in the footer copyright line
 middle_name:
 last_name: consortium
-wordmark: # coloured wordmark (navbar and home page): first part in teal, second part in the gradient. Delete to fall back to the plain title.
-  first: MEC
-  second: DITRINA
-funder: # shown on the home page, right under the wordmark and acronym
+funder: # shown on the home page, right under the logo
   name: Canceropôle PACA
   programme: Actions Structurantes
   url: https://canceropole-paca.com/
@@ -18,10 +15,10 @@ funder: # shown on the home page, right under the wordmark and acronym
 contact_note: >
   The fastest way to reach us is the request form on the Contact page.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  MECDITRINA — MEChanobiology Devices and Innovative Tools for Research IN cAncer. A regional network giving researchers in
+  MECANET — Mechanobiology Cancer Network. A regional network giving researchers in
   Provence-Alpes-Côte d'Azur access to mechanobiology tools, expertise and data analysis, across Marseille and Nice.
 # Bilingual: footer_text cannot contain Liquid, so both languages are here and
-# _sass/_mecditrina.scss shows the one matching <html lang> (.mx-lang-en / .mx-lang-fr).
+# _sass/_mecanet.scss shows the one matching <html lang> (.mx-lang-en / .mx-lang-fr).
 footer_text: >
   <span class="mx-lang-en" lang="en">Funded by <a href="https://canceropole-paca.com/" target="_blank" rel="noopener">Canceropôle PACA</a>
   (Actions Structurantes). <a href="/legal/">Legal notice &amp; data protection</a>. Built with
@@ -31,10 +28,10 @@ footer_text: >
   <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a>, hébergé par GitHub Pages.</span>
 keywords: mechanobiology, cancer, atomic force microscopy, traction force microscopy, biophysics, Marseille, Nice, PACA
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: favicon.svg # file in /assets/img/
+icon: favicon.png # file in /assets/img/
 apple_touch_icon: apple-touch-icon.png # 180x180 PNG in /assets/img/
 
-url: https://mecditrina.github.io # GitHub Pages site of Mecditrina/mecditrina.github.io (change for a custom domain)
+url: https://mecanet-paca.github.io # GitHub Pages site of mecanet-paca/mecanet-paca.github.io (change for a custom domain)
 baseurl: # leave blank: the site is served from the root of <org>.github.io
 preview: true # true before launch: robots.txt disallows all crawlers and omits the sitemap. Set to false at launch.
 last_updated: false # set to true if you want to display last updated in the footer
@@ -152,8 +149,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: MECDITRINA news
-blog_description: News from the MECDITRINA mechanobiology network
+blog_name: MECANET news
+blog_description: News from the MECANET mechanobiology network
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 

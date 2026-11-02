@@ -1,0 +1,26 @@
+{% comment %}
+  MECANET logo, used in the navbar (variant='navbar') and the home page hero (variant='lockup').
+  Both theme versions are in the HTML; _sass/_mecanet.scss shows the one matching html[data-theme].
+  The lockup image contains the tagline, so pages do not repeat it as text.
+{% endcomment %}
+{% if include.variant == 'lockup' %}
+  <div class="mx-logo-lockup">
+    <img
+      class="mx-logo mx-logo-light"
+      src="{{ '/assets/img/mecanet-lockup.png' | relative_url }}"
+      width="1573"
+      height="656"
+      alt="MECANET — Mechanobiology Cancer Network"
+    >
+    <img
+      class="mx-logo mx-logo-dark"
+      src="{{ '/assets/img/mecanet-lockup-dark.png' | relative_url }}"
+      width="1581"
+      height="656"
+      alt="MECANET — Mechanobiology Cancer Network"
+    >
+  </div>
+{% else %}
+  <img class="mx-logo mx-logo-light" src="{{ '/assets/img/mecanet-wordmark.png' | relative_url }}" width="935" height="156" alt="MECANET">
+  <img class="mx-logo mx-logo-dark" src="{{ '/assets/img/mecanet-wordmark-dark.png' | relative_url }}" width="935" height="156" alt="MECANET">
+{% endif %}

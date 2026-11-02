@@ -1,6 +1,6 @@
-# MECDITRINA website
+# MECANET website
 
-Website of MECDITRINA (MEChanobiology Devices and Innovative Tools for Research IN cAncer), built on the
+Website of MECANET (Mechanobiology Cancer Network), a structuring action of Canceropôle PACA, built on the
 [al-folio](https://github.com/alshedivat/al-folio) v1 Jekyll starter and published with GitHub Pages. The site is
 bilingual: English at `/`, French at `/fr/`.
 
@@ -50,24 +50,25 @@ Font Awesome and vanilla-back-to-top are not downloaded at build time. To update
 
 ## Visual identity
 
-From the MECDITRINA presentation (October 2026):
+From the MECANET logo (Canceropôle PACA colours):
 
-- **Wordmark**: "MEC" in deep teal `#015977`, "DITRINA" in a mauve → pink → peach gradient
-  (`#9F639B` → `#D1638B` → `#E18B6A` → `#F99E72`). Vector files: `assets/img/mecditrina-wordmark.svg`
-  (light backgrounds) and `mecditrina-wordmark-dark.svg` (dark backgrounds).
-- **Header band**: aqua → lavender → pink → peach (`#6FC8D2` → `#C9AED5` → `#E8B7C3` → `#FCB88F`).
-- **Text**: navy `#183A4A` / `#23394B`, secondary `#4F616F`, accent teal `#119BA5`.
-- **Fonts**: Montserrat (wordmark, headings) and Inter (body text), self-hosted (SIL Open Font License).
+- **Logo**: temporary PNGs in `assets/img/`: `mecanet-wordmark.png` (navbar) and `mecanet-lockup.png` (home page), each with a `-dark` version
+  for the dark theme.
+- **Colours**: purple `#31217C`, teal `#00748C`, pink `#F14C80`, yellow `#FEB400`. Pink and yellow are for fills and
+  decoration, never text on a light background.
+- **Light theme**: purple headings and primary accents, teal links and secondary accents.
+- **Dark theme**: yellow headings and primary accents, light teal links `#7FD3E3`.
+- **Fonts**: Montserrat (headings) and Inter (body text), self-hosted (SIL Open Font License).
 
-All of it lives in `_sass/_mecditrina.scss`.
+Colours and fonts live in `_sass/_mecanet.scss`.
 
 ## Files that override the al-folio theme
 
 Two theme files are overridden locally:
 
-- `assets/css/main.scss`: identical to the theme's, plus one line loading `_sass/_mecditrina.scss`.
-- `_includes/header.liquid`: the theme's version, except that the navbar shows the coloured wordmark
-  (`_includes/wordmark.liquid`, whose text is set by `wordmark:` in `_config.yml`), lists only the pages of the
+- `assets/css/main.scss`: identical to the theme's, plus one line loading `_sass/_mecanet.scss`.
+- `_includes/header.liquid`: the theme's version, except that the navbar shows the logo
+  (`_includes/logo.liquid`), lists only the pages of the
   current language, has an EN/FR switch and a skip-to-content link, and takes its interface strings from
   `_data/i18n.yml`.
 

@@ -18,24 +18,8 @@
     <div class="container">
       {% if page.ref != 'home' %}
         <a class="navbar-brand title font-weight-lighter" href="{{ home_page.url | relative_url }}">
-          {% comment %} Local override: coloured wordmark instead of the plain site title {% endcomment %}
-          {% if site.wordmark %}
-            {% include wordmark.liquid %}
-          {% elsif site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
-          {% endif %}
+          {% comment %} Local override: logo instead of the plain site title {% endcomment %}
+          {% include logo.liquid variant='navbar' %}
         </a>
       {% elsif site.enable_navbar_social %}
         <!-- Social Icons -->

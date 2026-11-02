@@ -3,7 +3,7 @@ layout: page
 title: Instruments
 permalink: /fr/instruments/
 ref: instruments
-description: Le portefeuille technologique de MECDITRINA, sur les sites de Marseille et de Nice.
+description: Le portefeuille technologique de MECANET, sur les sites de Marseille et de Nice.
 nav: true
 nav_order: 1
 ---

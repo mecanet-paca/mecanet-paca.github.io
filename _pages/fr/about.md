@@ -9,8 +9,7 @@ announcements:
 ---
 
 <section class="mx-hero">
-  {% include wordmark.liquid %}
-  <p class="mx-acronym" lang="en"><b>MEC</b>hanobiology <b>D</b>evices and <b>I</b>nnovative <b>T</b>ools for <b>R</b>esearch <b>IN</b> c<b>A</b>ncer</p>
+  {% include logo.liquid variant='lockup' %}
   <a class="mx-funder" href="{{ site.funder.url }}" target="_blank" rel="noopener">
     <span class="mx-funder-label">Financé par</span>
     {% if site.funder.logo %}
@@ -35,7 +34,8 @@ announcements:
 <section class="mx-section">
   <h2>Un service pour la recherche</h2>
   <p class="mx-section-intro">
-    MECDITRINA réunit en un point d'entrée unique l'expertise en mécanobiologie déjà présente dans la région. Vous apportez la
+    MECANET est une action structurante du Canceropôle PACA (octobre 2026 – juin 2028). Elle réunit en un point d'entrée unique
+    l'expertise en mécanobiologie déjà présente dans la région. Vous apportez la
     question biologique ; nous vous aidons à trouver la bonne technique, les bons experts et la bonne façon d'analyser les données.
   </p>
   <div class="mx-grid">
@@ -49,7 +49,7 @@ announcements:
       </ul>
     </div>
     <div class="mx-card">
-      <span class="mx-icon lavender"><i class="fa-solid fa-user-gear"></i></span>
+      <span class="mx-icon purple"><i class="fa-solid fa-user-gear"></i></span>
       <h3>Expertise et accompagnement</h3>
       <ul>
         <li>Conception expérimentale</li>
@@ -59,7 +59,7 @@ announcements:
       </ul>
     </div>
     <div class="mx-card">
-      <span class="mx-icon peach"><i class="fa-solid fa-chart-line"></i></span>
+      <span class="mx-icon yellow"><i class="fa-solid fa-chart-line"></i></span>
       <h3>Analyse de données et modélisation</h3>
       <ul>
         <li>Analyse d'images et de forces</li>
@@ -113,13 +113,4 @@ announcements:
 <section class="mx-section">
   <h2>Actualités</h2>
   {% include news-list.liquid limit=true %}
-</section>
-
-<section class="mx-section mx-callout">
-  <h2>À propos du nom</h2>
-  <p>
-    Mecditrina fait référence à Meditrina, déesse romaine associée à la guérison, en écho à l'ambition du projet de contribuer à
-    de nouvelles approches contre le cancer et d'autres maladies. MECDITRINA est une action structurante du Canceropôle PACA
-    (octobre 2026 – juin 2028).
-  </p>
 </section>

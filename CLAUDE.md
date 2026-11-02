@@ -1,11 +1,11 @@
-# MECDITRINA website — notes for Claude Code
+# MECANET website — notes for Claude Code
 
-Website of MECDITRINA (MEChanobiology Devices and Innovative Tools for Research IN cAncer), a Canceropôle PACA
+Website of MECANET (Mechanobiology Cancer Network), a Canceropôle PACA
 "Actions Structurantes" project (Oct 2026 – Jun 2028) with two hubs: DyNaMo (Marseille, coordinator Michael Sebbagh)
 and IRCAN (Nice, coordinator Etienne Boulter). The site is a showcase plus a single entry point ("guichet unique") for
 access requests to mechanobiology instruments and expertise.
 
-Repo: `Mecditrina/mecditrina.github.io` (public; preview mode until launch, see the preview flag). Etienne commits manually: **never commit or push**;
+Repo: `mecanet-paca/mecanet-paca.github.io` (public; preview mode until launch, see the preview flag). Etienne commits manually: **never commit or push**;
 propose changes, then stop.
 
 ## Content rules
@@ -26,29 +26,28 @@ propose changes, then stop.
   people who have not agreed to be listed — not even temporarily.
 - Request-form data stays in Tally (EU-hosted). No Google Sheets / Google Forms integration.
 - No third-party requests from the pages (the legal notice relies on it). Fonts are self-hosted in `assets/fonts/`
-  (`@font-face` in `_sass/_mecditrina.scss`); the two JavaScript/CSS libraries are vendored in `assets/vendor/` (see
+  (`@font-face` in `_sass/_mecanet.scss`); the two JavaScript/CSS libraries are vendored in `assets/vendor/` (see
   "Vendored libraries" below). Builds need no network access.
 - **Click-to-load rule for any embed** (forms, videos, maps…): nothing may be requested from a third party until
   the visitor clicks. Show a button plus one line naming who the content comes from, insert the iframe from a small
   inline script on click, and keep a plain link that works without JavaScript. Model: `_includes/tally-embed.liquid`
   (Tally form on Contact). Both legal notices must describe what loads after the click and from whom.
-- The project name may still change. Keep the name out of new code paths: the wordmark text lives only in
-  `wordmark:` in `_config.yml`, rendered by `_includes/wordmark.liquid`.
+- The logo images (and their alt text) are referenced only from `_includes/logo.liquid`
+  (`variant='navbar'` or `variant='lockup'`).
 
 ## Architecture (al-folio v1)
 
 - Thin starter: layouts, includes and Sass come from gems pinned in `Gemfile` (`al_folio_core` 1.0.15 etc.).
   `theme: al_folio_core` must stay in `_config.yml`.
 - Gem files are customised by local overrides at the same path. Only two exist; keep it that way if possible:
-  - `assets/css/main.scss` — the gem's version plus a final `@use "mecditrina";`
-  - `_includes/header.liquid` — the gem's version, except: the navbar brand renders `wordmark.liquid` when
-    `site.wordmark` is set; the nav lists only pages in the current language; "home"/brand go to that language's
+  - `assets/css/main.scss` — the gem's version plus a final `@use "mecanet";`
+  - `_includes/header.liquid` — the gem's version, except: the navbar brand renders `logo.liquid`; the nav lists only pages in the current language; "home"/brand go to that language's
     home page; an EN/FR switch links to the page with the same `ref:` in the other language; a skip-to-content
     link targets `#main-content` (an empty span after `</header>`, since the gem's main container has no id); all
     its interface strings (menu button, "(current)", theme toggle, switch labels) come from `_data/i18n.yml`.
   - After any gem update: `bundle exec al-folio upgrade overrides audit`.
-- All identity styles: `_sass/_mecditrina.scss`. Components are prefixed `mx-` (`mx-hero`, `mx-section`, `mx-grid`,
-  `mx-grid-2`, `mx-card`, `mx-icon` + tints `peach`/`lavender`/`mint`, `mx-chips`, `mx-steps`, `mx-badge`
+- All identity styles: `_sass/_mecanet.scss`. Components are prefixed `mx-` (`mx-hero`, `mx-section`, `mx-grid`,
+  `mx-grid-2`, `mx-card`, `mx-icon` + tints `purple`/`yellow`/`pink`, `mx-chips`, `mx-steps`, `mx-badge`
   `marseille`/`nice`/`soon`, `mx-domain`, `mx-person`, `mx-avatar`, `mx-list-plain`, `mx-callout`,
   `mx-btn-primary`/`mx-btn-secondary`, `mx-form-frame`, `mx-note`). Reuse these before adding new ones; colours go
   through the `--global-*` variables so dark mode keeps working.
@@ -74,7 +73,7 @@ propose changes, then stop.
 - Pages are HTML blocks inside Markdown files. Markdown inside an HTML block is not processed (kramdown
   `parse_block_html` is off), so write HTML (`<b>`, `<a href>`) there, not `**` or `[]()`.
 - Internal links: use `{{ '/path/' | relative_url }}` in Liquid pages. Links in running text stay underlined (WCAG 1.4.1;
-  rule "Links in running text" in `_sass/_mecditrina.scss`).
+  rule "Links in running text" in `_sass/_mecanet.scss`).
 
 ## Build, check, deploy
 
@@ -115,15 +114,17 @@ To update a library (manually, e.g. when Dependabot or a release note calls for 
    `integrity` and `version` in `_config.yml`.
 4. Production build + PurgeCSS; check that icons render, back-to-top works and the pages make no external requests.
 
-## Visual identity (deck of 13 Oct 2026)
+## Visual identity (MECANET logo, Canceropôle PACA colours)
 
-- Wordmark: "MEC" `#015977` (dark mode `#6FC8D2`); "DITRINA" gradient `#9F639B` → `#D1638B` 30% → `#E18B6A` 65% →
-  `#F99E72`. Montserrat 700.
-- Header band: `#6FC8D2` → `#A1B8DA` → `#C9AED5` → `#E8B7C3` → `#FCB88F`.
-- Text: headings `#183A4A`, body `#23394B`, secondary `#4F616F`, accent `#119BA5`, hover `#A8476F`.
-- Tints: `#E4F4F5`, `#FDF3EC`, `#F2EFF6`, `#E9F5F2`, `#EBF0F5`.
-- Dark mode: background `#0E1F2B`, cards `#142A38`, text `#E2EBF0`.
-- Fonts: Montserrat (wordmark, headings), Inter (body). Aptos (deck body font) is not licensed for the web.
+- Logo: purple `#31217C`, teal `#00748C`, pink `#F14C80`, yellow `#FEB400`. Temporary PNGs in `assets/img/`
+  (`mecanet-wordmark` for the navbar, `mecanet-lockup` for the home page, each with a `-dark` version); vector files will replace them.
+- Pink and yellow are fills, borders and decoration only, never text on a light background.
+- Header and footer band: flat segments of the four logo colours.
+- Light theme: headings and primary accents `#31217C`, links and secondary accents `#00748C`, body `#2A2745`,
+  secondary `#5A5775`. Tints: `#E5F1F4`, `#FFF6DF`, `#ECEAF5`, `#FDEBF1`, `#F1F0F6`.
+- Dark theme: background `#14112B`, cards `#1E1A3D`, text `#ECEAF5`, secondary `#BDB8DA`, headings and primary accents
+  `#FEB400`, links `#7FD3E3`.
+- Fonts: Montserrat (headings), Inter (body).
 
 ## Open items
 

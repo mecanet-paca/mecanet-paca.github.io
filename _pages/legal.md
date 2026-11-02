@@ -8,9 +8,9 @@ description: Legal notice and how data sent through this website is handled.
 
 ## Publisher
 
-This website is published by the coordinators of MECDITRINA, a structuring action funded by Canceropôle PACA.
+This website is published by the coordinators of MECANET, a structuring action funded by Canceropôle PACA.
 
-Directors of publication, MECDITRINA coordinators:
+Directors of publication, MECANET coordinators:
 
 - Etienne Boulter, IRCAN (Inserm U1081 / CNRS UMR 7284, Université Côte d'Azur), Faculté de Médecine, 28 avenue de Valombrose, 06107 Nice Cedex 2, France.
 - Michael Sebbagh, DyNaMo U1325, Inserm & Aix-Marseille Université, Bâtiment Inserm TPR2 bloc 5, Case 909, 163 avenue de Luminy, 13009 Marseille, France.

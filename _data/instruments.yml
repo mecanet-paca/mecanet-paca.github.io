@@ -1,4 +1,4 @@
-# MECDITRINA technology portfolio, shown on the Instruments page.
+# MECANET technology portfolio, shown on the Instruments page.
 # Edit this file to add, update or remove techniques; no HTML needed.
 #
 # sites: any of [marseille, nice]
@@ -7,14 +7,14 @@
 #   planned   = planned for the future ("Under development")
 # *_fr fields: French text for French pages (via _includes/tr.liquid); English is used when a *_fr field is missing.
 # icon: a Font Awesome solid icon name (https://fontawesome.com/search?ic=free&o=r)
-# tint: aqua | lavender | peach | mint   (background colour of the icon)
+# tint: teal | purple | yellow | pink   (background colour of the icon)
 
 - domain: Mechanical characterisation across scales
   domain_fr: "Caractérisation mécanique multi-échelle"
   summary: Elasticity and viscoelasticity of samples from nanometre to centimetre scales, under physiological conditions.
   summary_fr: "Élasticité et viscoélasticité d'échantillons, de l'échelle du nanomètre à celle du centimètre, en conditions physiologiques."
   icon: fa-ruler-combined
-  tint: aqua
+  tint: teal
   techniques:
     - name: AFM nanoindentation and microrheology
       name_fr: "Nanoindentation et microrhéologie par microscopie à force atomique (AFM)"
@@ -44,7 +44,7 @@
   summary: Engineered substrates to measure how cells pull on and respond to their microenvironment.
   summary_fr: "Substrats à propriétés contrôlées pour mesurer comment les cellules exercent des forces sur leur microenvironnement et y répondent."
   icon: fa-arrows-to-dot
-  tint: lavender
+  tint: purple
   techniques:
     - name: Traction force microscopy (TFM)
       name_fr: "Microscopie de force de traction (TFM)"
@@ -66,7 +66,7 @@
   summary: Controlled mechanical perturbation to study mechanotransduction.
   summary_fr: "Perturbation mécanique contrôlée pour étudier la mécanotransduction."
   icon: fa-hand-back-fist
-  tint: peach
+  tint: yellow
   techniques:
     - name: Cyclic uniaxial cell stretching
       name_fr: "Étirement cellulaire cyclique uniaxial"
@@ -98,7 +98,7 @@
   summary: From single-molecule unbinding forces to cell–cell adhesion.
   summary_fr: "Des forces de rupture sur molécule unique à l'adhésion cellule–cellule."
   icon: fa-link
-  tint: mint
+  tint: pink
   techniques:
     - name: Single-molecule force spectroscopy (AFM)
       name_fr: "Spectroscopie de force sur molécule unique par AFM (SMFS)"

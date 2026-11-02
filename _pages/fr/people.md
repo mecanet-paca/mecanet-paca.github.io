@@ -3,7 +3,7 @@ layout: page
 title: Équipe
 permalink: /fr/equipe/
 ref: people
-description: Les équipes et les experts de MECDITRINA.
+description: Les équipes et les experts de MECANET.
 nav: true
 nav_order: 4
 ---

@@ -1,11 +1,14 @@
 /*******************************************************************************
- * MECDITRINA identity layer
+ * MECANET identity layer
  *
- * Colours and type taken from the MECDITRINA presentation (13 Oct 2026):
- *   - "MEC" deep teal + "DITRINA" mauve → pink → peach gradient (slide 3 wordmark)
- *   - aqua → lavender → pink → peach header band (slide headers)
- *   - navy text, teal accents and pastel icon tints (slide 2)
- * Fonts: Montserrat (wordmark, headings) + Inter (body), self-hosted in
+ * Colours taken from the MECANET logo (Canceropôle PACA colours):
+ *   - purple #31217C: headings and primary accents (light theme)
+ *   - teal #00748C: links and secondary accents (light theme)
+ *   - pink #F14C80, yellow #FEB400: fills, borders and decoration only, never
+ *     text on a light background (contrast too low)
+ *   - dark theme: yellow is the primary accent, as in the dark logo; links and
+ *     secondary text use light tints of teal and purple
+ * Fonts: Montserrat (headings) + Inter (body), self-hosted in
  * assets/fonts/ (Fontsource 5.3.0 woff2, SIL OFL 1.1) so pages make no requests
  * to Google Fonts.
  *
@@ -14,26 +17,20 @@
  ******************************************************************************/
 
 // ---- Brand palette ----------------------------------------------------------
-$mx-mec: #015977; // "MEC" in the wordmark, primary brand colour
-$mx-teal: #119ba5; // accent numbers / icons (slide 2)
-$mx-navy: #183a4a; // dark headings (slide 2)
-$mx-ink: #23394b; // body text
-$mx-slate: #4f616f; // secondary text
-$mx-mauve: #9f639b;
-$mx-pink: #d1638b;
-$mx-coral: #e18b6a;
-$mx-peach: #f99e72;
-$mx-aqua: #6fc8d2;
+$mx-purple: #31217c; // logo, primary brand colour
+$mx-teal: #00748c; // logo, links and secondary accents
+$mx-pink: #f14c80; // logo, decoration only
+$mx-yellow: #feb400; // logo, decoration only on light backgrounds; primary accent in the dark theme
+$mx-ink: #2a2745; // body text
+$mx-slate: #5a5775; // secondary text
+$mx-night: #14112b; // dark theme background, and text on yellow
 
-// Pastel tints used behind icons (slide 2)
-$mx-tint-aqua: #e4f4f5;
-$mx-tint-peach: #fdf3ec;
-$mx-tint-lavender: #f2eff6;
-$mx-tint-mint: #e9f5f2;
-$mx-tint-blue: #ebf0f5;
-
-$mx-ditrina-gradient: linear-gradient(90deg, $mx-mauve 0%, $mx-pink 30%, $mx-coral 65%, $mx-peach 100%);
-$mx-band-gradient: linear-gradient(90deg, #6fc8d2 0%, #a1b8da 28%, #c9aed5 50%, #e8b7c3 72%, #fcb88f 100%);
+// Pale tints of the logo colours, used behind icons and badges
+$mx-tint-teal: #e5f1f4;
+$mx-tint-yellow: #fff6df;
+$mx-tint-purple: #eceaf5;
+$mx-tint-pink: #fdebf1;
+$mx-tint-neutral: #f1f0f6;
 
 // ---- Self-hosted fonts --------------------------------------------------------------
 // latin + latin-ext subsets; the browser downloads latin-ext only if a page uses those characters.
@@ -71,68 +68,78 @@ $mx-font-body:
 // ---- Theme tokens (override al-folio defaults) -------------------------------
 :root {
   --global-bg-color: #ffffff;
-  --global-code-bg-color: #{$mx-tint-lavender};
+  --global-code-bg-color: #{$mx-tint-purple};
   --global-text-color: #{$mx-ink};
   --global-text-color-light: #{$mx-slate};
-  --global-theme-color: #{$mx-mec};
-  --global-hover-color: #a8476f;
+  --global-theme-color: #{$mx-teal};
+  --global-hover-color: #{$mx-purple};
   --global-hover-text-color: #ffffff;
-  --global-footer-bg-color: #{$mx-navy};
-  --global-footer-text-color: #c5d3db;
+  --global-footer-bg-color: #{$mx-purple};
+  --global-footer-text-color: #d9d5ee;
   --global-footer-link-color: #ffffff;
-  --global-divider-color: rgba(35, 57, 75, 0.12);
+  --global-divider-color: rgba(49, 33, 124, 0.14);
   --global-card-bg-color: #ffffff;
-  --global-highlight-color: #a8476f;
+  --global-highlight-color: #{$mx-purple};
 
-  --mx-mec: #{$mx-mec};
+  --mx-primary: #{$mx-purple};
   --mx-accent: #{$mx-teal};
-  --mx-heading: #{$mx-navy};
-  --mx-surface: #f7f9fb;
+  --mx-heading: #{$mx-purple};
+  --mx-surface: #f6f5fa;
+  --mx-band: linear-gradient(90deg, #{$mx-purple} 0 25%, #{$mx-teal} 25% 50%, #{$mx-pink} 50% 75%, #{$mx-yellow} 75% 100%);
   --mx-hero-bg:
     linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, #ffffff 100%),
-    linear-gradient(90deg, rgba(111, 200, 210, 0.22), rgba(201, 174, 213, 0.22) 50%, rgba(252, 184, 143, 0.24));
-  --mx-tint-aqua: #{$mx-tint-aqua};
-  --mx-tint-peach: #{$mx-tint-peach};
-  --mx-tint-lavender: #{$mx-tint-lavender};
-  --mx-tint-mint: #{$mx-tint-mint};
-  --mx-tint-blue: #{$mx-tint-blue};
-  --mx-marseille-text: #6e3f73;
-  --mx-nice-text: #015977;
-  --mx-soon-text: #8a4a24;
-  --mx-planned-text: #2f557a;
+    linear-gradient(90deg, rgba(49, 33, 124, 0.08), rgba(0, 116, 140, 0.08) 35%, rgba(241, 76, 128, 0.07) 70%, rgba(254, 180, 0, 0.1));
+  --mx-avatar-bg: #{$mx-purple};
+  --mx-tint-teal: #{$mx-tint-teal};
+  --mx-tint-yellow: #{$mx-tint-yellow};
+  --mx-tint-purple: #{$mx-tint-purple};
+  --mx-tint-pink: #{$mx-tint-pink};
+  --mx-tint-neutral: #{$mx-tint-neutral};
+  --mx-icon-yellow: #7f5a00;
+  --mx-icon-purple: #{$mx-purple};
+  --mx-icon-pink: #ad2556;
+  --mx-marseille-text: #{$mx-purple};
+  --mx-nice-text: #00586b;
+  --mx-soon-text: #7a5600;
+  --mx-planned-text: #45406e;
 }
 
 html[data-theme="dark"] {
-  --global-bg-color: #0e1f2b;
-  --global-code-bg-color: #1a3242;
-  --global-text-color: #e2ebf0;
-  --global-text-color-light: #9db2bf;
-  --global-theme-color: #{$mx-aqua};
-  --global-hover-color: #f2a27d;
-  --global-hover-text-color: #0e1f2b;
-  --global-footer-bg-color: #0a1720;
-  --global-footer-text-color: #9db2bf;
-  --global-footer-link-color: #e2ebf0;
-  --global-divider-color: #24404f;
-  --global-card-bg-color: #142a38;
-  --global-highlight-color: #f08fa8;
+  --global-bg-color: #{$mx-night};
+  --global-code-bg-color: #262150;
+  --global-text-color: #eceaf5;
+  --global-text-color-light: #bdb8da;
+  --global-theme-color: #7fd3e3;
+  --global-hover-color: #{$mx-yellow};
+  --global-hover-text-color: #{$mx-night};
+  --global-footer-bg-color: #0e0c20;
+  --global-footer-text-color: #bdb8da;
+  --global-footer-link-color: #eceaf5;
+  --global-divider-color: #363061;
+  --global-card-bg-color: #1e1a3d;
+  --global-highlight-color: #{$mx-yellow};
 
-  --mx-mec: #{$mx-aqua};
-  --mx-accent: #{$mx-aqua};
-  --mx-heading: #f2f6f8;
-  --mx-surface: #142a38;
+  --mx-primary: #{$mx-yellow};
+  --mx-accent: #7fd3e3;
+  --mx-heading: #{$mx-yellow};
+  --mx-surface: #1e1a3d;
+  --mx-band: linear-gradient(90deg, #9d8fe8 0 25%, #{$mx-teal} 25% 50%, #{$mx-pink} 50% 75%, #{$mx-yellow} 75% 100%);
   --mx-hero-bg:
-    linear-gradient(180deg, rgba(14, 31, 43, 0) 55%, #0e1f2b 100%),
-    linear-gradient(90deg, rgba(111, 200, 210, 0.16), rgba(201, 174, 213, 0.14) 50%, rgba(252, 184, 143, 0.14));
-  --mx-tint-aqua: rgba(111, 200, 210, 0.16);
-  --mx-tint-peach: rgba(249, 158, 114, 0.16);
-  --mx-tint-lavender: rgba(201, 174, 213, 0.16);
-  --mx-tint-mint: rgba(120, 200, 170, 0.16);
-  --mx-tint-blue: rgba(150, 180, 220, 0.16);
-  --mx-marseille-text: #e2c3e6;
-  --mx-nice-text: #9fe0e7;
-  --mx-soon-text: #fbc9a9;
-  --mx-planned-text: #bcd0ec;
+    linear-gradient(180deg, rgba(20, 17, 43, 0) 55%, #{$mx-night} 100%),
+    linear-gradient(90deg, rgba(125, 105, 220, 0.16), rgba(0, 116, 140, 0.18) 35%, rgba(241, 76, 128, 0.1) 70%, rgba(254, 180, 0, 0.08));
+  --mx-avatar-bg: #{$mx-teal};
+  --mx-tint-teal: rgba(127, 211, 227, 0.16);
+  --mx-tint-yellow: rgba(254, 180, 0, 0.16);
+  --mx-tint-purple: rgba(157, 143, 232, 0.2);
+  --mx-tint-pink: rgba(241, 76, 128, 0.18);
+  --mx-tint-neutral: rgba(189, 184, 218, 0.16);
+  --mx-icon-yellow: #ffd666;
+  --mx-icon-purple: #cfc8f5;
+  --mx-icon-pink: #ffa8c4;
+  --mx-marseille-text: #cfc8f5;
+  --mx-nice-text: #8fdceb;
+  --mx-soon-text: #ffd666;
+  --mx-planned-text: #d3d0e6;
 }
 
 // ---- Typography --------------------------------------------------------------
@@ -178,39 +185,41 @@ footer a {
   text-underline-offset: 0.15em;
 }
 
-// ---- Wordmark ----------------------------------------------------------------
-.mx-wordmark {
-  font-family: $mx-font-display;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  line-height: 1;
+// ---- Logo: one image per theme (_includes/logo.liquid) --------------------------
+.mx-logo {
+  width: auto;
+  max-width: 100%;
 }
 
-.mx-mec {
-  color: var(--mx-mec);
+.mx-logo-dark,
+html[data-theme="dark"] .mx-logo-light {
+  display: none;
 }
 
-.mx-ditrina {
-  background: $mx-ditrina-gradient;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+html[data-theme="dark"] .mx-logo-dark {
+  display: inline;
 }
 
-// ---- Navbar: gradient band on top, wordmark as brand ----------------------
+// ---- Navbar: colour band on top, logo as brand ----------------------
 #navbar {
   border-top: 4px solid transparent;
-  border-image: $mx-band-gradient 1;
+  border-image: var(--mx-band) 1;
 }
 
-#navbar .navbar-brand.title {
-  font-weight: 700 !important;
+// The 40px box is the height of the former text brand: it keeps the navbar at 61px, including on phones
+#navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-block: 0;
 }
 
-#navbar .navbar-brand .mx-wordmark {
-  font-size: 1.35rem;
+#navbar .navbar-brand .mx-logo {
+  height: 24px;
+}
+
+#navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  color: var(--mx-primary);
 }
 
 #navbar .nav-link {
@@ -279,7 +288,7 @@ html[lang="fr"] .mx-lang-en {
   height: 4px;
   margin-top: 0.55rem;
   border-radius: 2px;
-  background: $mx-ditrina-gradient;
+  background: $mx-pink;
 }
 
 .mx-section-intro {
@@ -309,23 +318,9 @@ html[lang="fr"] .mx-lang-en {
   text-align: center;
 }
 
-.mx-hero .mx-wordmark {
-  display: inline-block;
-  font-size: clamp(2.2rem, 7.5vw, 4.4rem);
-  letter-spacing: 0.03em;
-}
-
-.mx-acronym {
-  margin: 0.9rem auto 0;
-  font-size: 0.98rem;
-  color: var(--global-text-color-light);
-  font-style: italic;
-}
-
-.mx-acronym b {
-  font-style: normal;
-  font-weight: 600;
-  color: var(--mx-mec);
+.mx-logo-lockup .mx-logo {
+  width: min(100%, 24rem);
+  height: auto;
 }
 
 .mx-funder {
@@ -408,7 +403,7 @@ a.mx-btn,
   gap: 0.5rem;
   padding: 0.7rem 1.3rem;
   border-radius: 999px;
-  border: 2px solid var(--mx-mec);
+  border: 2px solid var(--mx-primary);
   font-family: $mx-font-display;
   font-weight: 600;
   font-size: 0.95rem;
@@ -421,13 +416,13 @@ a.mx-btn,
 
 a.mx-btn-primary,
 button.mx-btn-primary {
-  background: var(--mx-mec);
+  background: var(--mx-primary);
   color: #ffffff;
 }
 
 html[data-theme="dark"] a.mx-btn-primary,
 html[data-theme="dark"] button.mx-btn-primary {
-  color: #0e1f2b;
+  color: $mx-night;
 }
 
 button.mx-btn {
@@ -438,20 +433,20 @@ a.mx-btn-primary:hover,
 a.mx-btn-primary:focus-visible,
 button.mx-btn-primary:hover,
 button.mx-btn-primary:focus-visible {
-  background: var(--global-hover-color);
-  border-color: var(--global-hover-color);
+  background: var(--mx-accent);
+  border-color: var(--mx-accent);
   color: var(--global-hover-text-color);
 }
 
 a.mx-btn-secondary {
   background: transparent;
-  color: var(--mx-mec);
+  color: var(--mx-primary);
 }
 
 a.mx-btn-secondary:hover,
 a.mx-btn-secondary:focus-visible {
-  border-color: var(--global-hover-color);
-  color: var(--global-hover-color);
+  border-color: var(--mx-accent);
+  color: var(--mx-accent);
 }
 
 // ---- Cards -------------------------------------------------------------------------
@@ -493,34 +488,22 @@ a.mx-btn-secondary:focus-visible {
   border-radius: 50%;
   font-size: 1.1rem;
   color: var(--mx-accent);
-  background: var(--mx-tint-aqua);
+  background: var(--mx-tint-teal);
 }
 
-.mx-icon.peach {
-  background: var(--mx-tint-peach);
-  color: #c4683f;
+.mx-icon.yellow {
+  background: var(--mx-tint-yellow);
+  color: var(--mx-icon-yellow);
 }
 
-.mx-icon.lavender {
-  background: var(--mx-tint-lavender);
-  color: #7d4f8e;
+.mx-icon.purple {
+  background: var(--mx-tint-purple);
+  color: var(--mx-icon-purple);
 }
 
-.mx-icon.mint {
-  background: var(--mx-tint-mint);
-  color: #2b8a6e;
-}
-
-html[data-theme="dark"] .mx-icon.peach {
-  color: #fbc9a9;
-}
-
-html[data-theme="dark"] .mx-icon.lavender {
-  color: #e2c3e6;
-}
-
-html[data-theme="dark"] .mx-icon.mint {
-  color: #a6e3cc;
+.mx-icon.pink {
+  background: var(--mx-tint-pink);
+  color: var(--mx-icon-pink);
 }
 
 // ---- Chips (sample types) ----------------------------------------------------------
@@ -604,22 +587,22 @@ html[data-theme="dark"] .mx-icon.mint {
 }
 
 .mx-badge.marseille {
-  background: var(--mx-tint-lavender);
+  background: var(--mx-tint-purple);
   color: var(--mx-marseille-text);
 }
 
 .mx-badge.nice {
-  background: var(--mx-tint-aqua);
+  background: var(--mx-tint-teal);
   color: var(--mx-nice-text);
 }
 
 .mx-badge.soon {
-  background: var(--mx-tint-peach);
+  background: var(--mx-tint-yellow);
   color: var(--mx-soon-text);
 }
 
 .mx-badge.planned {
-  background: var(--mx-tint-blue);
+  background: var(--mx-tint-neutral);
   color: var(--mx-planned-text);
 }
 
@@ -676,7 +659,7 @@ html[data-theme="dark"] .mx-icon.mint {
   font-family: $mx-font-display;
   font-weight: 700;
   color: #ffffff;
-  background: linear-gradient(135deg, $mx-mec, $mx-pink 70%, $mx-peach);
+  background: var(--mx-avatar-bg);
 }
 
 .mx-person h3 {
@@ -765,7 +748,7 @@ html[data-theme="dark"] .mx-icon.mint {
 // ---- Footer -----------------------------------------------------------------------------------------
 footer {
   border-top: 3px solid transparent;
-  border-image: $mx-band-gradient 1;
+  border-image: var(--mx-band) 1;
 }
 
 @media (max-width: 576px) {

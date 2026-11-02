@@ -16,7 +16,7 @@ en:
   status_planned: Under development
   tally_show_form: Show the request form
   tally_notice: Loading the form connects to Tally (Belgium) and its service providers.
-  tally_iframe_title: MECDITRINA service request form
+  tally_iframe_title: MECANET service request form
   # month abbreviations for news dates (index 0 = January); English dates use strftime instead
   months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
 
@@ -34,5 +34,5 @@ fr:
   status_planned: En cours de développement
   tally_show_form: Afficher le formulaire de demande
   tally_notice: L'affichage du formulaire établit une connexion avec Tally (Belgique) et ses sous-traitants.
-  tally_iframe_title: Formulaire de demande de service MECDITRINA
+  tally_iframe_title: Formulaire de demande de service MECANET
   months: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]
