@@ -15,7 +15,7 @@ Directors of publication, MECANET coordinators:
 - Etienne Boulter, IRCAN (Inserm U1081 / CNRS UMR 7284, Université Côte d'Azur), Faculté de Médecine, 28 avenue de Valombrose, 06107 Nice Cedex 2, France.
 - Michael Sebbagh, DyNaMo U1325, Inserm & Aix-Marseille Université, Bâtiment Inserm TPR2 bloc 5, Case 909, 163 avenue de Luminy, 13009 Marseille, France.
 
-Contact: the directors of publication, at the professional addresses above.
+Contact: [info.mecanet@inserm.fr](mailto:info.mecanet@inserm.fr).
 
 ## Hosting
 
@@ -35,7 +35,9 @@ The form on the contact page loads only after you click "Show the request form";
 {% endif %}
 
 - **Purpose:** processing your request for access to instruments or expertise, and producing anonymous activity statistics for the funder.
-- **Data collected:** name, institute, email, optional phone number, the systems you are interested in and the description of your needs.
+- **Data collected:** name, institute or laboratory, email, organisation type, the techniques or expertise you are interested in, the description of your needs, whether human samples are involved, and optionally your preferred site and how you heard about MECANET.
 - **Recipients:** the project coordination team and, for complex requests, the steering committee.
 - **Retention:** identifiable request data are kept until the end of the project (June 2028), then anonymised. Anonymised statistics are kept for reporting to Canceropôle PACA.
-- **Your rights:** you can access, correct or delete your data, or object to its processing, by writing to the directors of publication. You may also lodge a complaint with the CNIL (cnil.fr).
+- **Your rights:** you can access, correct or delete your data, or object to its processing, by writing to [info.mecanet@inserm.fr](mailto:info.mecanet@inserm.fr). You may also lodge a complaint with the CNIL (cnil.fr).
+
+Requests sent by email to [request.mecanet@inserm.fr](mailto:request.mecanet@inserm.fr) or [info.mecanet@inserm.fr](mailto:info.mecanet@inserm.fr) are received through Inserm's mailing-list service and handled by the coordination team for the same purpose and with the same retention period as form submissions.

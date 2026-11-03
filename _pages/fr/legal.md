@@ -15,7 +15,7 @@ Directeurs de la publication, coordinateurs de MECANET :
 - Etienne Boulter, IRCAN (Inserm U1081 / CNRS UMR 7284, Université Côte d'Azur), Faculté de Médecine, 28 avenue de Valombrose, 06107 Nice Cedex 2, France.
 - Michael Sebbagh, DyNaMo U1325, Inserm & Aix-Marseille Université, Bâtiment Inserm TPR2 bloc 5, Case 909, 163 avenue de Luminy, 13009 Marseille, France.
 
-Contact : les directeurs de la publication, aux adresses professionnelles ci-dessus.
+Contact : [info.mecanet@inserm.fr](mailto:info.mecanet@inserm.fr).
 
 ## Hébergement
 
@@ -36,7 +36,9 @@ Le formulaire de la page contact ne se charge qu'après un clic sur « Afficher
 {% endif %}
 
 - **Finalité :** traiter votre demande d'accès aux instruments ou à l'expertise, et produire des statistiques d'activité anonymes pour le financeur.
-- **Données collectées :** nom, institut, adresse e-mail, numéro de téléphone (facultatif), les systèmes qui vous intéressent et la description de vos besoins.
+- **Données collectées :** nom, institut ou laboratoire, adresse e-mail, type d'organisme, techniques ou expertises souhaitées, description de votre besoin, présence d'échantillons humains et, facultativement, le site souhaité et la façon dont vous avez connu MECANET.
 - **Destinataires :** l'équipe de coordination du projet et, pour les demandes complexes, le comité de pilotage.
 - **Durée de conservation :** les données de demande identifiantes sont conservées jusqu'à la fin du projet (juin 2028), puis anonymisées. Les statistiques anonymisées sont conservées pour le compte rendu au Canceropôle PACA.
-- **Vos droits :** vous pouvez accéder à vos données, les rectifier ou les supprimer, ou vous opposer à leur traitement, en écrivant aux directeurs de la publication. Vous pouvez également introduire une réclamation auprès de la CNIL (cnil.fr).
+- **Vos droits :** vous pouvez accéder à vos données, les rectifier ou les supprimer, ou vous opposer à leur traitement, en écrivant à [info.mecanet@inserm.fr](mailto:info.mecanet@inserm.fr). Vous pouvez également introduire une réclamation auprès de la CNIL (cnil.fr).
+
+Les demandes envoyées par e-mail à [request.mecanet@inserm.fr](mailto:request.mecanet@inserm.fr) ou [info.mecanet@inserm.fr](mailto:info.mecanet@inserm.fr) sont reçues via le service de listes de diffusion de l'Inserm et traitées par l'équipe de coordination, pour la même finalité et avec la même durée de conservation que les demandes envoyées via le formulaire.
