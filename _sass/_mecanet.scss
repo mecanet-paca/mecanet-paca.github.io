@@ -319,42 +319,43 @@ html[lang="fr"] .mx-lang-en {
 }
 
 .mx-logo-lockup .mx-logo {
-  width: min(100%, 24rem);
+  width: min(560px, 90vw);
+  max-width: 100%;
   height: auto;
 }
 
+// Funder: a light pill under the buttons, secondary to the MECANET lockup
 .mx-funder {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem 0.6rem;
-  margin: 1.1rem auto 0;
-  padding: 0.5rem 1.1rem;
-  border: 1px solid var(--global-divider-color);
+  gap: 0.3rem 0.5rem;
+  margin: 1.75rem auto 0;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: var(--global-card-bg-color);
-  color: var(--global-text-color);
+  font-size: 0.9375rem;
+  color: var(--global-text-color-light);
 }
 
 a.mx-funder:hover {
-  color: var(--global-text-color);
-  border-color: var(--mx-accent);
+  color: var(--global-text-color-light);
+  border-color: var(--global-divider-color);
   text-decoration: none;
 }
 
 .mx-funder-label {
-  font-size: 0.85rem;
   color: var(--global-text-color-light);
 }
 
 // Funder's logo: always on a white plate, never recoloured or inverted (light and dark mode)
 .mx-funder-logo {
   box-sizing: content-box;
-  height: 76px;
+  height: 56px;
   width: auto;
-  padding: 8px 14px;
-  border-radius: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
   background: #ffffff;
 }
 
@@ -366,7 +367,6 @@ a.mx-funder:hover {
 }
 
 .mx-funder-programme {
-  font-size: 0.85rem;
   color: var(--global-text-color-light);
 }
 
@@ -760,20 +760,14 @@ footer {
     margin: 2.4rem 0;
   }
 
-  // Stack the funder block so the logo can be larger and its second line stays legible
+  // Stack the funder block (label, logo, programme) so no line starts with the separator
   .mx-funder {
     flex-direction: column;
-    width: 100%;
     border-radius: 14px;
-    padding: 0.7rem 1.1rem;
   }
 
-  // Fill the stacked block's width instead of a fixed height, so the logo never overflows narrow screens
-  .mx-funder-logo {
-    box-sizing: border-box;
+  .mx-logo-lockup .mx-logo {
     width: 100%;
-    max-width: 340px;
-    height: auto;
   }
 
   .mx-funder-programme::before {

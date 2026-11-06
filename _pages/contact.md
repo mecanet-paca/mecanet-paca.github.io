@@ -7,15 +7,17 @@ description: Request access to an instrument or to expertise, or simply ask a qu
 nav: true
 nav_order: 5
 # Tally form ID: the last part of the form's share link (https://tally.so/r/XXXXXX → XXXXXX)
-tally_form_id: 44WVjk
+tally_form_id: bZqDVe
 # Shared contact address shown on this page
-contact_email: # functional mailbox, once created
+contact_email: info.mecanet@inserm.fr
+# Address for access requests by email (alternative to the form)
+request_email: request.mecanet@inserm.fr
 ---
 
 <section class="mx-section" style="margin-top: 1rem">
   <h2>How to request access</h2>
   <ol class="mx-steps">
-    <li><b>Fill in the form</b><span>Your question, your samples and the technique you have in mind, if any.</span></li>
+    <li><b>Fill in the form or email us</b><span>Your question, your samples and the technique you have in mind, if any.</span></li>
     <li><b>Review within 2–5 working days</b><span>The project engineer reads every request and comes back to you.</span></li>
     <li><b>Routing</b><span>Simple requests are routed within a week; complex ones are discussed by the steering committee (2–3 weeks).</span></li>
     <li><b>Start</b><span>You are put in touch with the expert team to plan the experiments and, if relevant, training.</span></li>
@@ -35,6 +37,12 @@ contact_email: # functional mailbox, once created
     <div class="mx-callout">
       <p><b>The online request form opens soon.</b> In the meantime, please contact one of the coordinators below.</p>
     </div>
+  {% endif %}
+  {% if page.request_email %}
+    <p>
+      Prefer email? Send your request to <a href="mailto:{{ page.request_email }}">{{ page.request_email }}</a> with the same information as the form: your name
+      and institute, the technique or expertise you need, a description of your project, and whether it involves human samples.
+    </p>
   {% endif %}
 </section>
 

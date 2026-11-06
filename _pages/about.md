@@ -10,15 +10,6 @@ announcements:
 
 <section class="mx-hero">
   {% include logo.liquid variant='lockup' %}
-  <a class="mx-funder" href="{{ site.funder.url }}" target="_blank" rel="noopener">
-    <span class="mx-funder-label">Funded by</span>
-    {% if site.funder.logo %}
-      <img class="mx-funder-logo" src="{{ '/assets/img/' | append: site.funder.logo | relative_url }}" alt="{{ site.funder.logo_alt | default: site.funder.name }}">
-    {% else %}
-      <span class="mx-funder-name">{{ site.funder.name }}</span>
-    {% endif %}
-    <span class="mx-funder-programme">{{ site.funder.programme }}</span>
-  </a>
   <h1>Exploring the mechanical forces of life</h1>
   <p class="mx-lead">
     A regional network giving researchers access to mechanobiology tools, skills and devices to measure and model
@@ -28,6 +19,15 @@ announcements:
     <a class="mx-btn mx-btn-primary" href="{{ '/contact/' | relative_url }}#request"><i class="fa-solid fa-paper-plane"></i> Request access</a>
     <a class="mx-btn mx-btn-secondary" href="{{ '/instruments/' | relative_url }}">Explore the instruments</a>
   </div>
+  <a class="mx-funder" href="{{ site.funder.url }}" target="_blank" rel="noopener">
+    <span class="mx-funder-label">Funded by</span>
+    {% if site.funder.logo %}
+      <img class="mx-funder-logo" src="{{ '/assets/img/' | append: site.funder.logo | relative_url }}" alt="{{ site.funder.logo_alt | default: site.funder.name }}">
+    {% else %}
+      <span class="mx-funder-name">{{ site.funder.name }}</span>
+    {% endif %}
+    <span class="mx-funder-programme">{{ site.funder.programme }}</span>
+  </a>
 </section>
 
 <section class="mx-section">

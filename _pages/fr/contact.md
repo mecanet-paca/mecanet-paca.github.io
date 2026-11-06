@@ -9,17 +9,19 @@ nav_order: 5
 # Leave empty to use the English contact page's values; set only for a French-specific form or address
 tally_form_id:
 contact_email:
+request_email:
 ---
 
 {% comment %} Fall back to the English contact page (ref: contact, lang: en) for empty values {% endcomment %}
 {% assign en_contact = site.pages | where: 'ref', 'contact' | where: 'lang', 'en' | first %}
 {% assign tally_form_id = page.tally_form_id | default: en_contact.tally_form_id %}
 {% assign contact_email = page.contact_email | default: en_contact.contact_email %}
+{% assign request_email = page.request_email | default: en_contact.request_email %}
 
 <section class="mx-section" style="margin-top: 1rem">
   <h2>Comment demander un accès</h2>
   <ol class="mx-steps">
-    <li><b>Remplissez le formulaire</b><span>Votre question, vos échantillons et la technique envisagée, le cas échéant.</span></li>
+    <li><b>Remplissez le formulaire ou écrivez-nous</b><span>Votre question, vos échantillons et la technique envisagée, le cas échéant.</span></li>
     <li><b>Examen sous 2 à 5 jours ouvrés</b><span>L'ingénieure de projet lit chaque demande et revient vers vous.</span></li>
     <li><b>Orientation</b><span>Les demandes simples sont orientées sous une semaine ; les demandes complexes sont examinées par le comité de pilotage (2 à 3 semaines).</span></li>
     <li><b>Démarrage</b><span>Nous vous mettons en relation avec l'équipe experte pour planifier les expériences et, si besoin, une formation.</span></li>
@@ -39,6 +41,12 @@ contact_email:
     <div class="mx-callout">
       <p><b>Le formulaire de demande en ligne ouvrira prochainement.</b> En attendant, contactez l'un des coordinateurs ci-dessous.</p>
     </div>
+  {% endif %}
+  {% if request_email %}
+    <p>
+      Vous préférez l'e-mail ? Envoyez votre demande à <a href="mailto:{{ request_email }}">{{ request_email }}</a> avec les mêmes informations que le
+      formulaire : vos nom et institut, la technique ou l'expertise souhaitée, une description de votre projet, et si elle implique des échantillons humains.
+    </p>
   {% endif %}
 </section>
 
