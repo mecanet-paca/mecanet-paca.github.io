@@ -10,15 +10,6 @@ announcements:
 
 <section class="mx-hero">
   {% include logo.liquid variant='lockup' %}
-  <a class="mx-funder" href="{{ site.funder.url }}" target="_blank" rel="noopener">
-    <span class="mx-funder-label">Financé par</span>
-    {% if site.funder.logo %}
-      <img class="mx-funder-logo" src="{{ '/assets/img/' | append: site.funder.logo | relative_url }}" alt="{{ site.funder.logo_alt | default: site.funder.name }}">
-    {% else %}
-      <span class="mx-funder-name">{{ site.funder.name }}</span>
-    {% endif %}
-    <span class="mx-funder-programme">{{ site.funder.programme }}</span>
-  </a>
   <h1>Explorer les forces mécaniques du vivant</h1>
   <p class="mx-lead">
     Un réseau régional qui donne aux équipes de recherche accès à des outils, des compétences et des dispositifs de mécanobiologie
@@ -29,6 +20,15 @@ announcements:
     <a class="mx-btn mx-btn-primary" href="{{ '/fr/contact/' | relative_url }}#request"><i class="fa-solid fa-paper-plane"></i> Demander un accès</a>
     <a class="mx-btn mx-btn-secondary" href="{{ '/fr/instruments/' | relative_url }}">Découvrir les instruments</a>
   </div>
+  <a class="mx-funder" href="{{ site.funder.url }}" target="_blank" rel="noopener">
+    <span class="mx-funder-label">Financé par</span>
+    {% if site.funder.logo %}
+      <img class="mx-funder-logo" src="{{ '/assets/img/' | append: site.funder.logo | relative_url }}" alt="{{ site.funder.logo_alt | default: site.funder.name }}">
+    {% else %}
+      <span class="mx-funder-name">{{ site.funder.name }}</span>
+    {% endif %}
+    <span class="mx-funder-programme">{{ site.funder.programme }}</span>
+  </a>
 </section>
 
 <section class="mx-section">
