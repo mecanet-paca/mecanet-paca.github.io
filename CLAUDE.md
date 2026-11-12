@@ -87,8 +87,9 @@ npx prettier . --write              # CI fails on unformatted files (printWidth 
 - `deploy.yml` builds with `JEKYLL_ENV=production`, then runs **PurgeCSS** on `_site`. Classes added only at runtime
   by JS must be safelisted in `purgecss.config.js`, otherwise they work locally and break in production.
 - Workflows kept: `deploy`, `prettier`, `axe` (accessibility), `broken-links-site`.
-- `preview:` in `_config.yml`: `true` before launch makes `robots.txt` disallow all crawlers (`Disallow: /`, no
-  `Sitemap:` line); `false` serves the normal `robots.txt` with the sitemap. **Set `preview: false` at launch.**
+- Workflows that use Ruby run on `ubuntu-24.04`, because ubuntu-latest (26.04) only has the latest patch of each Ruby series.
+- `preview:` in `_config.yml`: `true` makes `robots.txt` disallow all crawlers (`Disallow: /`, no `Sitemap:` line),
+  for a staging period; `false` is the normal live setting (`robots.txt` allows crawlers and lists the sitemap).
 - Publishing needs a public repo (GitHub Free): then Settings → Pages → Deploy from branch `gh-pages`, `/ (root)`.
   If the deploy fails with a 403, set workflow permissions to Read and write at org level.
 
@@ -131,5 +132,4 @@ To update a library (manually, e.g. when Dependabot or a release note calls for 
 Read `NOTES.local.md` if present for open items that involve people or internal decisions. It is gitignored and
 excluded from the build; never copy its content into a tracked file.
 
-- At launch: set `preview: false` in `_config.yml`.
 - Optional: partner/funder logo strip, custom domain.

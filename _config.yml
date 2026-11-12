@@ -33,7 +33,7 @@ apple_touch_icon: apple-touch-icon.png # 180x180 PNG in /assets/img/
 
 url: https://mecanet-paca.github.io # GitHub Pages site of mecanet-paca/mecanet-paca.github.io (change for a custom domain)
 baseurl: # leave blank: the site is served from the root of <org>.github.io
-preview: true # true before launch: robots.txt disallows all crawlers and omits the sitemap. Set to false at launch.
+preview: false # true (staging): robots.txt disallows all crawlers and omits the sitemap; false: normal live setting.
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
