@@ -55,7 +55,7 @@ nav_order: 4
   <h2>Partner institutes</h2>
   <ul class="mx-list-plain">
     {% for i in p.institutes %}
-      <li><b>{{ i.name }}</b> · {{ i.full }}, {{ i.city }}</li>
+      <li><b>{% if i.url %}<a href="{{ i.url }}" target="_blank" rel="noopener">{{ i.name }}</a>{% else %}{{ i.name }}{% endif %}</b> · {{ i.full }}, {{ i.city }}</li>
     {% endfor %}
   </ul>
 </section>

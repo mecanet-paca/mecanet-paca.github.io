@@ -1,6 +1,7 @@
 # People shown on the People page. Edit freely; no HTML needed.
 # initials: shown in the coloured circle when there is no photo
 # title: job title, shown under the role (optional)
+# url: institute website, linked from its name (optional)
 # *_fr fields: French text for the French page (via _includes/tr.liquid); English is used when missing.
 
 coordinators:
@@ -44,6 +45,7 @@ institutes:
     full_fr: "Institut de Recherche sur le Cancer et le Vieillissement"
   - name: Mecabionic
     city: Nice
+    url: https://univ-cotedazur.eu/research-organisations/research-units/mecabionic
     full: Federative institute for mechanobiology, Université Côte d'Azur
     full_fr: "Structure fédérative de mécanobiologie, Université Côte d'Azur"
 
