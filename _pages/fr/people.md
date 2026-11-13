@@ -53,7 +53,6 @@ nav_order: 4
 
 <section class="mx-section">
   <h2>Instituts partenaires</h2>
-  <p class="mx-section-intro">Plus de 18 équipes de recherche réparties dans 10 instituts à Marseille, Nice et Sophia Antipolis.</p>
   <ul class="mx-list-plain">
     {% for i in p.institutes %}
       <li><b>{{ i.name }}</b> · {% include tr.liquid obj=i key='full' %}, {{ i.city }}</li>
