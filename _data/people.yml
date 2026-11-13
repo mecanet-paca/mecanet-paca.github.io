@@ -42,28 +42,6 @@ institutes:
     city: Nice
     full: Institute for Research on Cancer and Aging
     full_fr: "Institut de Recherche sur le Cancer et le Vieillissement"
-  - name: CRCM
-    city: Marseille
-    full: Cancer Research Center of Marseille
-    full_fr: "Centre de Recherche en Cancérologie de Marseille"
-  - name: IBDM
-    city: Marseille
-    full: Institut de Biologie du Développement de Marseille
-  - name: CIML
-    city: Marseille
-    full: Centre d'Immunologie de Marseille-Luminy
-  - name: MMG
-    city: Marseille
-    full: Marseille Medical Genetics
-  - name: LP2M
-    city: Nice
-    full: Laboratoire de Physiomédecine Moléculaire
-  - name: IPMC
-    city: Sophia Antipolis
-    full: Institut de Pharmacologie Moléculaire et Cellulaire
-  - name: INPHYNI
-    city: Nice
-    full: Institut de Physique de Nice
   - name: Mecabionic
     city: Nice
     full: Federative institute for mechanobiology, Université Côte d'Azur

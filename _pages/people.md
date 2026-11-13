@@ -53,7 +53,6 @@ nav_order: 4
 
 <section class="mx-section">
   <h2>Partner institutes</h2>
-  <p class="mx-section-intro">More than 18 research teams across 10 institutes in Marseille, Nice and Sophia Antipolis.</p>
   <ul class="mx-list-plain">
     {% for i in p.institutes %}
       <li><b>{{ i.name }}</b> · {{ i.full }}, {{ i.city }}</li>
