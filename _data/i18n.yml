@@ -17,6 +17,12 @@ en:
   tally_show_form: Show the request form
   tally_notice: Loading the form connects to Tally (Belgium) and its service providers.
   tally_iframe_title: MECANET service request form
+  # home page hub diagram (_includes/hub-diagram.liquid)
+  hub_title: MECANET, a single entry point
+  hub_desc: MECANET connects research teams with mechanobiology technologies and experts across the region, through a single entry point.
+  hub_centre: MECANET
+  hub_teams: Research teams
+  hub_providers: Technologies & experts
   # month abbreviations for news dates (index 0 = January); English dates use strftime instead
   months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
 
@@ -35,4 +41,9 @@ fr:
   tally_show_form: Afficher le formulaire de demande
   tally_notice: L'affichage du formulaire établit une connexion avec Tally (Belgique) et ses sous-traitants.
   tally_iframe_title: Formulaire de demande de service MECANET
+  hub_title: MECANET, point d'entrée unique
+  hub_desc: MECANET met en relation des équipes de recherche avec des technologies et des experts en mécanobiologie de la région, via un point d'entrée unique.
+  hub_centre: MECANET
+  hub_teams: Équipes de recherche
+  hub_providers: Technologies et experts
   months: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

@@ -37,6 +37,7 @@ announcements:
     present across the region into a single entry point. You bring the
     biological question; we help you find the right technique, the right experts and the right way to analyse the data.
   </p>
+  {% include hub-diagram.liquid %}
   <div class="mx-grid">
     <div class="mx-card">
       <span class="mx-icon"><i class="fa-solid fa-microscope"></i></span>
