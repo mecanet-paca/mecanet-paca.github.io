@@ -90,6 +90,8 @@ $mx-font-body:
     linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, #ffffff 100%),
     linear-gradient(90deg, rgba(49, 33, 124, 0.08), rgba(0, 116, 140, 0.08) 35%, rgba(241, 76, 128, 0.07) 70%, rgba(254, 180, 0, 0.1));
   --mx-avatar-bg: #{$mx-purple};
+  --mx-hub-centre: #{$mx-purple};
+  --mx-hub-centre-text: #ffffff;
   --mx-tint-teal: #{$mx-tint-teal};
   --mx-tint-yellow: #{$mx-tint-yellow};
   --mx-tint-purple: #{$mx-tint-purple};
@@ -128,6 +130,8 @@ html[data-theme="dark"] {
     linear-gradient(180deg, rgba(20, 17, 43, 0) 55%, #{$mx-night} 100%),
     linear-gradient(90deg, rgba(125, 105, 220, 0.16), rgba(0, 116, 140, 0.18) 35%, rgba(241, 76, 128, 0.1) 70%, rgba(254, 180, 0, 0.08));
   --mx-avatar-bg: #{$mx-teal};
+  --mx-hub-centre: #{$mx-yellow};
+  --mx-hub-centre-text: #{$mx-night};
   --mx-tint-teal: rgba(127, 211, 227, 0.16);
   --mx-tint-yellow: rgba(254, 180, 0, 0.16);
   --mx-tint-purple: rgba(157, 143, 232, 0.2);
@@ -295,6 +299,68 @@ html[lang="fr"] .mx-lang-en {
   color: var(--global-text-color-light);
   max-width: 44rem;
   margin-bottom: 1.5rem;
+}
+
+// ---- Hub diagram (_includes/hub-diagram.liquid) ---------------------------------------
+.mx-hub {
+  max-width: 720px;
+  margin: 0.5rem auto 2rem;
+}
+
+.mx-hub svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// Vertical version for phones (see the 576px breakpoint below)
+.mx-hub .mx-hub-v {
+  display: none;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.mx-hub-link {
+  stroke: var(--global-text-color-light);
+  stroke-width: 1.5;
+}
+
+.mx-hub-arrowhead {
+  fill: var(--global-text-color-light);
+}
+
+.mx-hub-team {
+  fill: var(--global-card-bg-color);
+  stroke: var(--mx-accent);
+  stroke-width: 2.5;
+}
+
+.mx-hub-tech {
+  fill: var(--mx-tint-pink);
+  stroke: #{$mx-pink};
+  stroke-width: 2;
+}
+
+.mx-hub-tech-alt {
+  fill: var(--mx-tint-yellow);
+  stroke: #{$mx-yellow};
+}
+
+.mx-hub-centre {
+  fill: var(--mx-hub-centre);
+}
+
+.mx-hub-centre-text {
+  font-family: $mx-font-display;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  fill: var(--mx-hub-centre-text);
+}
+
+.mx-hub-label {
+  font-family: $mx-font-display;
+  font-weight: 600;
+  fill: var(--global-text-color);
 }
 
 .mx-grid {
@@ -752,6 +818,14 @@ footer {
 }
 
 @media (max-width: 576px) {
+  .mx-hub .mx-hub-h {
+    display: none;
+  }
+
+  .mx-hub .mx-hub-v {
+    display: block;
+  }
+
   .mx-hero {
     padding: 2.2rem 1.1rem 2rem;
   }

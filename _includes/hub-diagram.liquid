@@ -1,0 +1,66 @@
+{% comment %}
+  Home page diagram: MECANET as a single entry point between research teams and technology providers.
+  Two versions of the same diagram: horizontal (.mx-hub-h) and vertical for phones (.mx-hub-v); _sass/_mecanet.scss
+  shows one of them. Labels, title and description come from _data/i18n.yml (hub_* keys).
+{% endcomment %}
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+<div class="mx-hub">
+  <svg class="mx-hub-h" viewBox="0 0 760 320" role="img" aria-labelledby="mx-hub-title-h mx-hub-desc-h">
+    <title id="mx-hub-title-h">{{ t.hub_title | escape }}</title>
+    <desc id="mx-hub-desc-h">{{ t.hub_desc | escape }}</desc>
+    <defs>
+      <marker id="mx-hub-arrow-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+        <path class="mx-hub-arrowhead" d="M0,0 L10,5 L0,10 z" />
+      </marker>
+    </defs>
+    <line class="mx-hub-link" x1="166" y1="94" x2="315" y2="154" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <line class="mx-hub-link" x1="168" y1="152" x2="311" y2="171" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <line class="mx-hub-link" x1="168" y1="208" x2="311" y2="189" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <line class="mx-hub-link" x1="166" y1="266" x2="315" y2="206" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <line class="mx-hub-link" x1="590" y1="96" x2="445" y2="154" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <line class="mx-hub-link" x1="588" y1="152" x2="449" y2="171" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <line class="mx-hub-link" x1="588" y1="208" x2="449" y2="189" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <line class="mx-hub-link" x1="590" y1="264" x2="445" y2="206" marker-start="url(#mx-hub-arrow-h)" marker-end="url(#mx-hub-arrow-h)" />
+    <circle class="mx-hub-team" cx="140" cy="84" r="22" />
+    <circle class="mx-hub-team" cx="140" cy="148" r="22" />
+    <circle class="mx-hub-team" cx="140" cy="212" r="22" />
+    <circle class="mx-hub-team" cx="140" cy="276" r="22" />
+    <rect class="mx-hub-tech" x="598" y="62" width="44" height="44" rx="10" />
+    <rect class="mx-hub-tech mx-hub-tech-alt" x="598" y="126" width="44" height="44" rx="10" />
+    <rect class="mx-hub-tech" x="598" y="190" width="44" height="44" rx="10" />
+    <rect class="mx-hub-tech mx-hub-tech-alt" x="598" y="254" width="44" height="44" rx="10" />
+    <circle class="mx-hub-centre" cx="380" cy="180" r="64" />
+    <text class="mx-hub-centre-text" x="380" y="180" font-size="22" text-anchor="middle" dominant-baseline="central">{{ t.hub_centre | escape }}</text>
+    <text class="mx-hub-label" x="140" y="32" font-size="18" text-anchor="middle">{{ t.hub_teams | escape }}</text>
+    <text class="mx-hub-label" x="620" y="32" font-size="18" text-anchor="middle">{{ t.hub_providers | escape }}</text>
+  </svg>
+  <svg class="mx-hub-v" viewBox="0 0 360 520" role="img" aria-labelledby="mx-hub-title-v mx-hub-desc-v">
+    <title id="mx-hub-title-v">{{ t.hub_title | escape }}</title>
+    <desc id="mx-hub-desc-v">{{ t.hub_desc | escape }}</desc>
+    <defs>
+      <marker id="mx-hub-arrow-v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+        <path class="mx-hub-arrowhead" d="M0,0 L10,5 L0,10 z" />
+      </marker>
+    </defs>
+    <line class="mx-hub-link" x1="75" y1="105" x2="145" y2="210" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <line class="mx-hub-link" x1="146" y1="109" x2="166" y2="200" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <line class="mx-hub-link" x1="214" y1="109" x2="194" y2="200" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <line class="mx-hub-link" x1="285" y1="105" x2="215" y2="210" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <line class="mx-hub-link" x1="78" y1="417" x2="145" y2="316" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <line class="mx-hub-link" x1="147" y1="413" x2="166" y2="326" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <line class="mx-hub-link" x1="213" y1="413" x2="194" y2="326" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <line class="mx-hub-link" x1="282" y1="417" x2="215" y2="316" marker-start="url(#mx-hub-arrow-v)" marker-end="url(#mx-hub-arrow-v)" />
+    <circle class="mx-hub-team" cx="60" cy="82" r="22" />
+    <circle class="mx-hub-team" cx="140" cy="82" r="22" />
+    <circle class="mx-hub-team" cx="220" cy="82" r="22" />
+    <circle class="mx-hub-team" cx="300" cy="82" r="22" />
+    <rect class="mx-hub-tech" x="38" y="422" width="44" height="44" rx="10" />
+    <rect class="mx-hub-tech mx-hub-tech-alt" x="118" y="422" width="44" height="44" rx="10" />
+    <rect class="mx-hub-tech" x="198" y="422" width="44" height="44" rx="10" />
+    <rect class="mx-hub-tech mx-hub-tech-alt" x="278" y="422" width="44" height="44" rx="10" />
+    <circle class="mx-hub-centre" cx="180" cy="263" r="58" />
+    <text class="mx-hub-centre-text" x="180" y="263" font-size="19" text-anchor="middle" dominant-baseline="central">{{ t.hub_centre | escape }}</text>
+    <text class="mx-hub-label" x="180" y="30" font-size="16" text-anchor="middle">{{ t.hub_teams | escape }}</text>
+    <text class="mx-hub-label" x="180" y="506" font-size="16" text-anchor="middle">{{ t.hub_providers | escape }}</text>
+  </svg>
+</div>

@@ -38,6 +38,7 @@ announcements:
     l'expertise en mécanobiologie déjà présente dans la région. Vous apportez la
     question biologique ; nous vous aidons à trouver la bonne technique, les bons experts et la bonne façon d'analyser les données.
   </p>
+  {% include hub-diagram.liquid %}
   <div class="mx-grid">
     <div class="mx-card">
       <span class="mx-icon"><i class="fa-solid fa-microscope"></i></span>
